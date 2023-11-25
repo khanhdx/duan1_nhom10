@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chi tiết Hóa đơn</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        .status {
+            font-weight: bold;
+            color: green;
+        }
+
+        .shipping-details {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Chi tiết Hóa đơn</h1>
+
+    <table>
+        <tr>
+            <th>ID Hóa đơn</th>
+            <td>123456</td>
+        </tr>
+        <tr>
+            <th>Khách hàng</th>
+            <td>Nguyễn Văn A</td>
+        </tr>
+        <tr>
+            <th>Ngày đặt hàng</th>
+            <td>2023-11-22 10:30:00</td>
+        </tr>
+        <tr>
+            <th>Trạng thái</th>
+            <td class="status">Đã giao hàng</td>
+        </tr>
+    </table>
+
+    <h2>Chi tiết Đơn hàng</h2>
+
+    <table>
+        <tr>
+            <th>Sản phẩm</th>
+            <th>Số lượng</th>
+            <th>Giá</th>
+            <th>Tổng cộng</th>
+        </tr>
+        <tr>
+            <td>iPhone 14 Pro Max 512GB VN/A – Siêu Lướt Màu vàng</td>
+            <td>1</td>
+            <td>$1200.00</td>
+            <td>$1200.00</td>
+        </tr>
+        <tr>
+            <td>Samsung Galaxy S23 Ultra 256GB</td>
+            <td>2</td>
+            <td>$1500.00</td>
+            <td>$1100.00</td>
+        </tr>
+    </table>
+
+    <div class="shipping-details">
+        <h2>Thông tin giao hàng</h2>
+        <p><strong>Địa chỉ giao hàng:</strong> 123 Đường ABC, Quận XYZ, Thành phố Hn</p>
+        <p><strong>Số điện thoại:</strong> 0123 456 789</p>
+    </div>
+</body>
+</html>

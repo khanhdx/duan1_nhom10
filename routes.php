@@ -4,6 +4,8 @@ use Ductong\BaseMvc\Controllers\Admin\UserController;
 use Ductong\BaseMvc\Controllers\Admin\CategoryController;
 use Ductong\BaseMvc\Controllers\Admin\DashboardController;
 use Ductong\BaseMvc\Controllers\Admin\ProductController;
+use Ductong\BaseMvc\Controllers\Admin\chitiethoadonController;
+use Ductong\BaseMvc\Controllers\Admin\hoadonController;
 use Ductong\BaseMvc\Controllers\Client\HomeController;
 use Ductong\BaseMvc\Router;
 
@@ -27,3 +29,13 @@ $router->addRoute('/admin/products', ProductController::class, 'index');
 $router->addRoute('/admin/products/create', ProductController::class, 'create');
 $router->addRoute('/admin/products/update', ProductController::class, 'update');
 $router->addRoute('/admin/products/delete', ProductController::class, 'delete');
+
+$router->addRoute('/admin/chitiethoadon', chitiethoadonController::class, 'index');
+$router->addRoute('/admin/chitiethoadon/create', chitiethoadonController::class, 'create');
+$router->addRoute('/admin/chitiethoadon/update', chitiethoadonController::class, 'update');
+$router->addRoute('/admin/chitiethoadon/delete', chitiethoadonController::class, 'delete');
+
+$router->addRoute('/admin/hoadon', hoadonController::class, 'index');
+$router->addRoute('/admin/hoadon/create', hoadonController::class, 'create');
+$router->addRoute('/admin/hoadon/update', hoadonController::class, 'update');
+$router->addRoute('/admin/hoadon/delete', hoadonController::class, 'delete');

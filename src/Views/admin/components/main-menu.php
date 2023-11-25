@@ -39,6 +39,23 @@
                     </a>
                 </li>
 
+                <li class>
+                    <a href="/admin/chitiethoadon" class="waves-effect waves-dark">
+                        <span class="pcoded-micon">
+                            <i class="feather icon-layers"></i>
+                        </span>
+                        <span class="pcoded-mtext">Quản lý chi tiết hóa đơn</span>
+                    </a>
+                </li>
+
+                <li class>
+                    <a href="/admin/hoadon" class="waves-effect waves-dark">
+                        <span class="pcoded-micon">
+                            <i class="feather icon-layers"></i>
+                        </span>
+                        <span class="pcoded-mtext">Quản lý hóa đơn</span>
+                    </a>
+                </li>
             </ul>
         </div>
     </div>
