@@ -36,22 +36,29 @@
                                 </div>
                                 <div class="card-block">
                                     <form action="" method="post">
-                                        <label for="id_hd">hoadon</label>
-                                        <select name="id_hd" id="id_hd" class="form-control">
-                                            <?php foreach ($hoadon as $hoadon) : ?>
-                                                <option value="<?= $hoadon['id'] ?>"><?= $hoadon['id'] ?></option>
-                                            <?php endforeach; ?>
-                                        </select>
-
-                                        <label for="id_sp">sanpham</label>
-                                        <select name="id_sp" id="id_sp" class="form-control">
-                                            <?php foreach ($products as $product) : ?>
-                                                <option value="<?= $product['id'] ?>"><?= $product['id'] ?></option>
-                                            <?php endforeach; ?>
-                                        </select>
 
                                         <label for="name">name</label>
                                         <input type="text" name="name" class="form-control">
+                                        
+                                        <label for="id_hd">Hóa đơn</label>
+                                        <select name="id_hd" id="id_hd" class="form-control">
+                                            <option value="" selected>...</option>
+                                            <?php foreach ($hoadons as $hoadon) : ?>
+                                                <option value="<?= $hoadon['id'] ?>"><?= $hoadon['name'] ?></option>
+
+                                            <?php endforeach; ?>
+
+                                        </select>
+
+                                        <label for="id_sp">Sản phẩm</label>
+                                        <select name="id_sp" id="id_sp" class="form-control">
+                                            <option value="" selected>...</option>
+                                            <?php foreach ($products as $product) : ?>
+                                                <option value="<?= $product['id'] ?>"><?= $product['name'] ?></option>
+
+                                            <?php endforeach; ?>
+
+                                        </select>
 
                                         <label for="name">Số lượng mua</label>
                                         <input type="text" name="soluongmua" class="form-control">

@@ -7,10 +7,10 @@ use Ductong\BaseMvc\Model;
 class hoadon extends Model {
     protected $table = 'hoadon';
     protected $columns = [
-        'id',
+        'name',
         'id_kh',
         'tinhtrang',
-        'ngaylap',
+        'ngay_lap',
         'tonggia',
         'noinhan',
         'nvgh',

@@ -6,7 +6,7 @@
                 <div class="page-header-title">
                     <i class="feather icon-home bg-c-blue"></i>
                     <div class="d-inline">
-                        <h5>chitiethoadon</h5>
+                        <h5>Hóa đơn</h5>
                     </div>
                 </div>
             </div>
@@ -16,7 +16,7 @@
                         <li class="breadcrumb-item">
                             <a href="/admin/dashboard"><i class="feather icon-home"></i></a>
                         </li>
-                        <li class="breadcrumb-item"><a href="#!">chitiethoadon</a> </li>
+                        <li class="breadcrumb-item"><a href="#!">Hóa đơn</a> </li>
                     </ul>
                 </div>
             </div>
@@ -32,43 +32,43 @@
                         <div class="col-sm-12">
                             <div class="card">
                                 <div class="card-header">
-                                    <h5>Cập nhật </h5>
+                                    <h5>Cập nhật</h5>
                                 </div>
                                 <div class="card-block">
                                     <form action="" method="post" enctype="multipart/form-data">
-                                        <input type="hidden" name="id" value="<?= $chitiethoadon['id'] ?>">
+                                        <label for="name">name</label>
+                                        <input type="name" name="name" id="name" class="form-control">
 
-                                        <input type="hidden" name="id" value="<?= $chitiethoadon['id_hd'] ?>">
+                                        <label for="id_kh">Khách hàng</label>
+                                        <select name="id_kh" id="id_kh" class="form-control">
+                                            <option value="" selected>...</option>
+                                            <?php foreach ($users as $user) : ?>
+                                                <option value="<?= $user['id'] ?>"><?= $user['name'] ?></option>
 
-                                        <input type="hidden" name="id" value="<?= $chitiethoadon['id_sp'] ?>">
+                                            <?php endforeach; ?>
 
-                                        <label for="soluongmua">sô lượng mua</label>
-                                        <input type="text" name="soluongmua" id="soluongmua" class="form-control" value="<?= $chitiethoadon['soluongmua'] ?>">
-
-                                        <label for="category_id">Đơn Giá</label>
-                                        
-
-                                        
-
-                                        <br>
-
-                                        <label for="price">Price</label>
-                                        <input type="number" name="price" id="price" class="form-control" value="<?= $product['price'] ?>">
-
-                                        <label for="price_sale">Price sale</label>
-                                        <input type="number" name="price_sale" id="price_sale" class="form-control" value="<?= $product['price_sale'] ?>">
-
-                                        <label for="is_active">Active</label>
-                                        <select name="is_active" id="is_active" class="form-control">
-                                            <option <?= $product['is_active'] ? '' : 'selected' ?>  value="0">No</option>
-                                            <option <?= $product['is_active'] ? 'selected' : '' ?>  value="1" selected>Yes</option>
                                         </select>
 
-                                        <label for="description">Description</label>
-                                        <textarea name="description" id="description" class="form-control"><?= $product['description'] ?></textarea>
+                                        <label for="tinhtrang">Tình trạng</label>
+                                        <input type="tinhtrang" name="tinhtrang" id="tinhtrang" class="form-control">
+
+                                        <label for="ngay_lap">Ngày lập</label>
+                                        <input type="date" name="ngay_lap" id="ngay_lap" class="form-control"><?= $hoadons['ngay_lap'] ?></input>
+
+                                        <label for="tonggia">Tổng giá</label>
+                                        <input type="text" name="tonggia" id="tonggia" class="form-control" value="<?= $hoadons['tonggia'] ?>">
+
+                                        <label for="noinhan">Nơi nhận</label>
+                                        <input type="text" name="noinhan" id="noinhan" class="form-control" value="<?= $hoadons['noinhan'] ?>">
+
+                                        <label for="nvgh">Nhân viên giao hàng</label>
+                                        <input type="text" name="nvgh" id="nvgh" class="form-control" value="<?= $hoadons['nvgh'] ?>">
+
+                                        <label for="ghichu">Ghi chú</label>
+                                        <input type="text" name="ghichu" id="ghichu" class="form-control" value="<?= $hoadons['ghichu'] ?>">
 
                                         <button type="submit" name="btn-submit" class="btn btn-info mt-3">Submit</button>
-                                        <a href="/admin/products" class="btn btn-primary mt-3">Quay lại d/s</a>
+                                        <a href="/admin/hoadon" class="btn btn-primary mt-3">Quay lại d/s</a>
                                     </form>
                                 </div>
                             </div>

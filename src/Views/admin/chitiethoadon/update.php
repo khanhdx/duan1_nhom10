@@ -36,7 +36,7 @@
                                 </div>
                                 <div class="card-block">
                                     <form action="" method="post" enctype="multipart/form-data">
-                                        <input type="hidden" name="id" value="<?= $chitiethoadon['id'] ?>">
+                                        <input type="hidden" name="name" value="<?= $chitiethoadon['name'] ?>">
 
                                         <input type="hidden" name="id_hd" value="<?= $chitiethoadon['id_hd'] ?>">
 
@@ -47,6 +47,7 @@
 
                                         <label for="dongia">Đơn Giá</label>
                                         <input type="text" name="dongia" id="dongia" class="form-control" value="<?= $chitiethoadon['dongia'] ?>">
+                                        
                                         <button type="submit" name="btn-submit" class="btn btn-info mt-3">Submit</button>
                                         <a href="/admin/chitiethoadon" class="btn btn-primary mt-3">Quay lại d/s</a>
                                     </form>

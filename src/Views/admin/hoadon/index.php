@@ -6,7 +6,7 @@
                 <div class="page-header-title">
                     <i class="feather icon-home bg-c-blue"></i>
                     <div class="d-inline">
-                        <h5>Category</h5>
+                        <h5>Hóa đơn</h5>
                     </div>
                 </div>
             </div>
@@ -16,7 +16,7 @@
                         <li class="breadcrumb-item">
                             <a href="/admin/dashboard"><i class="feather icon-home"></i></a>
                         </li>
-                        <li class="breadcrumb-item"><a href="#!">Category</a> </li>
+                        <li class="breadcrumb-item"><a href="#!">Hóa đơn</a> </li>
                     </ul>
                 </div>
             </div>
@@ -32,7 +32,7 @@
                         <div class="col-sm-12">
                             <div class="card">
                                 <div class="card-header">
-                                    <h5>Danh sách Category</h5>
+                                    <h5>Hóa đơn</h5>
 
                                     <a href="/admin/hoadon/create" class="btn btn-info btn-sm">Tạo mới</a>
                                 </div>
@@ -41,7 +41,7 @@
                                         <table id="simpletable" class="table table-striped table-bordered nowrap">
                                             <thead>
                                                 <tr>
-                                                    <th>Hóa đơn</th>
+                                                    <th>name</th>
                                                     <th>Khách hàng</th>
                                                     <th>Tình trạng</th>
                                                     <th>Ngày lập</th>
@@ -53,10 +53,10 @@
                                             </thead>
 
                                             <tbody>
-                                                <?php foreach ($hoadon as $hoadon) : ?>
+                                                <?php foreach ($hoadons as $hoadon) : ?>
                                                     <tr>
-                                                        <td><?= $hoadon['id'] ?></td>
-                                                        <td><?= $hoadon['id_kh'] ?></td>
+                                                        <td><?= $hoadon['name'] ?></td>
+                                                        <td><?= $arrayusersIdName[$hoadon['id_kh']] ?></td>
                                                         <td><?= $hoadon['tinhtrang'] ?></td>
                                                         <td><?= $hoadon['ngay_lap'] ?></td>
                                                         <td><?= $hoadon['tonggia'] ?></td>
@@ -65,6 +65,8 @@
                                                         <td><?= $hoadon['ghichu'] ?></td>
                                                         <td>
                                                             <a href="/admin/hoadon/update?id=<?= $hoadon['id'] ?>" class="btn btn-primary btn-sm">Cập nhật</a>
+
+                                                            <a href="/admin/chitiethoadon?id=<?= $hoadon['id'] ?>" class="btn btn-primary btn-sm">Chi tiết</a>
 
                                                             <form action="/admin/hoadon/delete?id=<?= $hoadon['id'] ?>" method="post">
                                                                 <button type="submit" onclick="return confirm('Bạn có chắc chắn xóa?');" class="btn btn-danger btn-sm">Xóa</button>

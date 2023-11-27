@@ -7,7 +7,7 @@ use Ductong\BaseMvc\Model;
 class chitiethoadon extends Model {
     protected $table = 'chitiethoadon';
     protected $columns = [
-        'id',
+        
         'id_hd',
         'id_sp',
         'soluongmua',

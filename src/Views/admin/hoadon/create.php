@@ -36,40 +36,41 @@
                                 </div>
                                 <div class="card-block">
                                     <form action="" method="post" enctype="multipart/form-data">
-                                        <label for="name">Name</label>
-                                        <input type="text" name="name" id="name" class="form-control">
 
-                                        <label for="id">Hóa đơn</label>
-                                        <select name="id" id="id" class="form-control">
-                                            <?php foreach ($hoadon as $hoadons) : ?>
-                                                <option value="<?= $hoadons['id'] ?>"><?= $hoadons['name'] ?></option>
-                                            <?php endforeach; ?>
-                                        </select>
+                                        <label for="name">name</label>
+                                        <input type="name" name="name" id="name" class="form-control">
 
-                                        <label for="id_kh">Hóa đơn</label>
+                                        <label for="id_kh">Khách hàng</label>
                                         <select name="id_kh" id="id_kh" class="form-control">
-                                            <?php foreach ($hoadon as $hoadons) : ?>
-                                                <option value="<?= $hoadons['id'] ?>"><?= $hoadons['name'] ?></option>
+                                            <option value="" selected>...</option>
+                                            <?php foreach ($users as $user) : ?>
+                                                <option value="<?= $user['id'] ?>"><?= $user['name'] ?></option>
+
                                             <?php endforeach; ?>
+
                                         </select>
 
-                                        <label for="price">Price</label>
-                                        <input type="number" name="price" id="price" class="form-control">
+                                        <label for="tinhtrang">Tình trạng</label>
+                                        <input type="tinhtrang" name="tinhtrang" id="tinhtrang" class="form-control">
 
-                                        <label for="price_sale">Price sale</label>
-                                        <input type="number" name="price_sale" id="price_sale" class="form-control">
+                                        <label for="ngay_lap">ngày</label>
+                                        <input type="date" name="ngay_lap" id="ngay_lap" class="form-control">
 
-                                        <label for="is_active">Active</label>
-                                        <select name="is_active" id="is_active" class="form-control">
-                                            <option value="0">No</option>
-                                            <option value="1" selected>Yes</option>
-                                        </select>
+                                        <label for="tonggia">Tổng giá</label>
+                                        <input type="text" name="tonggia" id="tonggia" class="form-control">
 
-                                        <label for="description">Description</label>
-                                        <textarea name="description" id="description" class="form-control"></textarea>
+                                        <label for="noinhan">Nơi nhận</label>
+                                        <input type="text" name="noinhan" id="noinhan" class="form-control">
+
+                                        <label for="nvgh">Nhân viên Giao hàng</label>
+                                        <input type="text" name="nvgh" id="nvgh" class="form-control">
+
+                                        <label for="ghichu">Ghi chú</label>
+                                        <textarea name="ghichu" id="ghichu" class="form-control"></textarea>
+
 
                                         <button type="submit" name="btn-submit" class="btn btn-info mt-3">Submit</button>
-                                        <a href="/admin/products" class="btn btn-primary mt-3">Quay lại d/s</a>
+                                        <a href="/admin/hoadon" class="btn btn-primary mt-3">Quay lại</a>
                                     </form>
                                 </div>
                             </div>

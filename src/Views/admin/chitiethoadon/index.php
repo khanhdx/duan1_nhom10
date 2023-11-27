@@ -43,18 +43,16 @@
                                                 <tr>
                                                     <th>Hóa đơn</th>
                                                     <th>Sản phẩm</th>
-                                                    <th>Name</th>
                                                     <th>Số lượng mua</th>
                                                     <th>Đơn giá</th>
                                                 </tr>
                                             </thead>
 
                                             <tbody>
-                                                <?php foreach ($chitiethoadon as $chitiethoadon) : ?>
+                                                <?php foreach ($chitiethoadons as $chitiethoadon) : ?>
                                                     <tr>
-                                                        <td><?= $chitiethoadon['id_hd'] ?></td>
-                                                        <td><?= $chitiethoadon['id_sp'] ?></td>
-                                                        <td><?= $chitiethoadon['name'] ?></td>
+                                                        <td><?= $arrayusersIdName[$chitiethoadon['id_kh']] ?></td>
+                                                        <td><?= $arrayproductsIdName[$chitiethoadon['id_kh']] ?></td>
                                                         <td><?= $chitiethoadon['soluongmua'] ?></td>
                                                         <td><?= $chitiethoadon['dongia'] ?></td>
                                                         <td>

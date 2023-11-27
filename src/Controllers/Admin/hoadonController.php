@@ -4,14 +4,24 @@ namespace Ductong\BaseMvc\Controllers\Admin;
 
 use Ductong\BaseMvc\Controller;
 use Ductong\BaseMvc\Models\hoadon;
+use Ductong\BaseMvc\Models\User;
 
 class hoadonController extends Controller {
 
     /* Lấy danh sách */
     public function index() {
-        $hoadon = (new Hoadon())->all();
+        $hoadons = (new Hoadon())->all();
+        $use = (new User())->all();
 
-        $this->renderAdmin("hoadon/index", ["hoadon" => $hoadon]);
+        $arrayusersIdName = [];
+        foreach ($use as $users) {
+            $arrayusersIdName[$users['id']] = $users['name'];
+        }
+        $this->renderAdmin("hoadon/index", 
+        [
+            "hoadons" => $hoadons,
+            "arrayusersIdName" => $arrayusersIdName
+        ]);
     }
 
     /* Thêm mới */
@@ -19,34 +29,51 @@ class hoadonController extends Controller {
         if (isset($_POST["btn-submit"])) { 
             $data = [
                 'name' => $_POST['name'],
+                'id_kh' => $_POST['id_kh'],
+                'tinhtrang' => "đang vận chuyển",
+                'ngay_lap' => $_POST['ngay_lap'],
+                'tonggia' => $_POST['tonggia'],
+                'noinhan' => $_POST['noinhan'],
+                'nvgh' => $_POST['nvgh'],
+                'ghichu' => $_POST['ghichu'],
             ];
 
             (new Hoadon())->insert($data);
 
-            header('Location: /admin/categories');
+            header('Location: /admin/hoadon');
         }
 
-        $this->renderAdmin("categories/create");
+        $users = (new User())->all();
+        $hoadon = (new hoadon())->findOne($_GET["id"]);
+        $this->renderAdmin("hoadon/create",["hoadons" => $hoadon, 'users' => $users] );
     }
 
     /* Cập nhật */
     public function update() {
 
         if (isset($_POST["btn-submit"])) { 
-            $data = [
-                'name' => $_POST['name'],
+            $data = [      
+                'name' => $_POST['name'],      
+                'id_kh' => $_POST['id_kh'],
+                'tinhtrang' => "đang vận chuyển",
+                'ngay_lap' => $_POST['ngay_lap'],
+                'tonggia' => $_POST['tonggia'],
+                'noinhan' => $_POST['noinhan'],
+                'nvgh' => $_POST['nvgh'],
+                'ghichu' => $_POST['ghichu'],
             ];
 
             $conditions = [
                 ['id', '=', $_GET['id']],
             ];
 
-            (new Category())->update($data, $conditions);
+            (new hoadon())->update($data, $conditions);
         }
 
-        $category = (new Category())->findOne($_GET["id"]);
+        $users = (new User())->all();
+        $hoadons = (new hoadon())->findOne($_GET["id"]);
 
-        $this->renderAdmin("categories/update", ["category" => $category]);
+        $this->renderAdmin("hoadon/update", ["hoadons" => $hoadons, 'users' => $users]);
     }
 
     /* Xóa */
@@ -55,8 +82,8 @@ class hoadonController extends Controller {
             ['id', '=', $_GET['id']],
         ];
 
-        (new Category())->delete($conditions);
+        (new hoadon())->delete($conditions);
 
-        header('Location: /admin/categories');
+        header('Location: /admin/hoadon');
     }
 }
