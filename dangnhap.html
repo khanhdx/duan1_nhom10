@@ -20,9 +20,9 @@
                 <ul class="menu2">
                     <li><a href="index.html">Trang chủ</a></li>
                     <li><a href="">Danh Mục</a></li>
-          <li><a href="">Tuyển Dụng</a></li>
-          <li><a href="">Giới thiệu</a></li>
-          <li><a href="">Bảo Hành</a></li>
+                    <li><a href="">Tuyển Dụng</a></li>
+                    <li><a href="">Giới thiệu</a></li>
+                    <li><a href="">Bảo Hành</a></li>
 
                 </ul>
                 <form class="login" action="">
@@ -40,37 +40,37 @@
 
                         <li class="dropdown">
                             <i class="bi bi-phone"></i>
-                            <a class="dropdownbtn" href="">Điện thoại</a>
+                            <a class="dropdownbtn" href="trangsanpham.html">Điện thoại</a>
                         </li>
 
                         <li class="dropdown">
                             <i class="bi bi-apple"></i>
-                            <a class="dropdownbtn" href="">Apple</a>
+                            <a class="dropdownbtn" href="trangsanpham.html">Apple</a>
                         </li>
 
                         <li class="dropdown">
                             <i class="bi bi-laptop"></i>
-                            <a class="dropdownbtn" href="">Laptop</a>
+                            <a class="dropdownbtn" href="trangsanpham.html">Laptop</a>
                         </li>
 
                         <li class="dropdown">
                             <i class="bi bi-tv"></i>
-                            <a class="dropdownbtn" href="">Smart TV</a>
+                            <a class="dropdownbtn" href="trangsanpham.html">Smart TV</a>
                         </li>
 
                         <li class="dropdown">
                             <i class="bi bi-earbuds"></i>
-                            <a class="dropdownbtn" href="">Tai nghe</a>
+                            <a class="dropdownbtn" href="trangsanpham.html">Tai nghe</a>
                         </li>
 
                         <li class="dropdown">
                             <i class="bi bi-sim"></i>
-                            <a class="dropdownbtn" href="">Phụ kiện</a>
+                            <a class="dropdownbtn" href="trangsanpham.html">Phụ kiện</a>
                         </li>
 
                     </ul>
                 </nav>
-               
+
 
             </div>
         </header>
@@ -95,47 +95,47 @@
                 <a href="#"><button type="submit">Đăng Nhập</button></a>
                 <li><a class="quen" href="quenmatkhau.html">Quên mật khẩu</a></li>
                 <input class="ghinho" type="checkbox" name="" id="">Ghi nhớ tài khoản?
-                
-           
-                
+
+
+
             </div>
         </form>
     </div>
     <script>
         var album = [];
         for (var i = 0; i < 5; i++) {
-          album[i] = new Image();
-          album[i].src = "./img/anh" + i + ".jpg";
+            album[i] = new Image();
+            album[i].src = "./img/anh" + i + ".jpg";
         }
         var interval = setInterval(slideshow, 2000);
         index = 0;
         function slideshow() {
-          index++;
-          if (index > 4) {
-            index = 0;
-          }
-          document.getElementById("banner").src = album[index].src;
-    
-    
+            index++;
+            if (index > 4) {
+                index = 0;
+            }
+            document.getElementById("banner").src = album[index].src;
+
+
         }
         function next() {
-          index++;
-          if (index > 4) {
-            index = 0;
-          }
-          document.getElementById("banner").src = album[index].src;
-    
+            index++;
+            if (index > 4) {
+                index = 0;
+            }
+            document.getElementById("banner").src = album[index].src;
+
         }
         function pre() {
-          index--;
-          if (index < 0) {
-            index = 4;
-          }
-          document.getElementById("banner").src = album[index].src;
-    
+            index--;
+            if (index < 0) {
+                index = 4;
+            }
+            document.getElementById("banner").src = album[index].src;
+
         }
-    
-      </script>
+
+    </script>
 
 </body>
 
