@@ -49,8 +49,15 @@
 
                                         </select>
 
-                                        <label for="tinhtrang">Tình trạng</label>
-                                        <input type="tinhtrang" name="tinhtrang" id="tinhtrang" class="form-control">
+                                        <label for="tinhtrang">Tình Trạng</label>
+                                        <select name="tinhtrang" id="tinhtrang" class="form-control">
+                                            <option value="" selected>...</option>
+                                            <?php foreach ($tinhtrangs as $tinhtrang) : ?>
+                                                <option value="<?= $tinhtrang['id'] ?>"><?= $tinhtrang['tinhtrang'] ?></option>
+
+                                            <?php endforeach; ?>
+
+                                        </select>
 
                                         <label for="ngay_lap">Ngày lập</label>
                                         <input type="date" name="ngay_lap" id="ngay_lap" class="form-control"><?= $hoadons['ngay_lap'] ?></input>
@@ -62,7 +69,14 @@
                                         <input type="text" name="noinhan" id="noinhan" class="form-control" value="<?= $hoadons['noinhan'] ?>">
 
                                         <label for="nvgh">Nhân viên giao hàng</label>
-                                        <input type="text" name="nvgh" id="nvgh" class="form-control" value="<?= $hoadons['nvgh'] ?>">
+                                        <select name="nvgh" id="nvgh" class="form-control">
+                                            <option value="" selected>...</option>
+                                            <?php foreach ($nvghs as $nvgh) : ?>
+                                                <option value="<?= $nvgh['id'] ?>"><?= $nvgh['name'] ?></option>
+
+                                            <?php endforeach; ?>
+
+                                        </select>
 
                                         <label for="ghichu">Ghi chú</label>
                                         <input type="text" name="ghichu" id="ghichu" class="form-control" value="<?= $hoadons['ghichu'] ?>">

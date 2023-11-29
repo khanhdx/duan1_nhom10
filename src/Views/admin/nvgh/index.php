@@ -6,7 +6,7 @@
                 <div class="page-header-title">
                     <i class="feather icon-home bg-c-blue"></i>
                     <div class="d-inline">
-                        <h5>chitiethoadon</h5>
+                        <h5>Nhân viên giao hàng</h5>
                     </div>
                 </div>
             </div>
@@ -16,7 +16,7 @@
                         <li class="breadcrumb-item">
                             <a href="/admin/dashboard"><i class="feather icon-home"></i></a>
                         </li>
-                        <li class="breadcrumb-item"><a href="#!">chitiethoadon</a> </li>
+                        <li class="breadcrumb-item"><a href="#!">Nhân viên giao hàng</a> </li>
                     </ul>
                 </div>
             </div>
@@ -32,34 +32,32 @@
                         <div class="col-sm-12">
                             <div class="card">
                                 <div class="card-header">
-                                    <h5>chitiethoadon</h5>
+                                    <h5>Danh sách Nhân viên giao hàng</h5>
 
-                                    <a href="/admin/chitiethoadon/create" class="btn btn-info btn-sm">Tạo mới</a>
+                                    <a href="/admin/nvgh/create" class="btn btn-info btn-sm">Tạo mới</a>
                                 </div>
                                 <div class="card-block">
                                     <div class="dt-responsive table-responsive">
                                         <table id="simpletable" class="table table-striped table-bordered nowrap">
                                             <thead>
                                                 <tr>
-                                                    <th>Hóa đơn</th>
-                                                    <th>Sản phẩm</th>
-                                                    <th>Số lượng mua</th>
-                                                    <th>Đơn giá</th>
+                                                    <th>Name</th>
+                                                    <th>Số điện thoại 1</th>
+                                                    <th>Số điện thoại 2</th>
+                                                    <th>Action</th>
                                                 </tr>
                                             </thead>
 
                                             <tbody>
-                                                
-                                                <?php foreach ($chitiethoadons as $chitiethoadon) : ?>
+                                                <?php foreach ($nvghs as $nvgh) : ?>
                                                     <tr>
-                                                    <td><?= $chitiethoadon['id_hd'] ?></td>
-                                                        <td><?= $arraysanphamsIdName[$chitiethoadon['id_sp']] ?></td>
-                                                        <td><?= $chitiethoadon['soluongmua'] ?></td>
-                                                        <td><?= $chitiethoadon['dongia'] ?></td>
+                                                        <td><?= $nvgh['name'] ?></td>
+                                                        <td><?= $nvgh['sdt_1'] ?></td>
+                                                        <td><?= $nvgh['sdt_2'] ?></td>
                                                         <td>
-                                                            <a href="/admin/chitiethoadon/update?id=<?= $chitiethoadon['id'] ?>" class="btn btn-primary btn-sm">Cập nhật</a>
+                                                            <a href="/admin/nvgh/update?id=<?= $nvgh['id'] ?>" class="btn btn-primary btn-sm">Cập nhật</a>
 
-                                                            <form action="/admin/chitiethoadon/delete?id=<?= $chitiethoadon['id'] ?>" method="post">
+                                                            <form action="/admin/nvgh/delete?id=<?= $nvgh['id'] ?>" method="post">
                                                                 <button type="submit" onclick="return confirm('Bạn có chắc chắn xóa?');" class="btn btn-danger btn-sm">Xóa</button>
                                                             </form>
                                                         </td>

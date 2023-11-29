@@ -4,6 +4,6 @@
 session_start();
 
 const DB_HOST = 'localhost';
-const DB_DATABASE = 'nhom10';
+const DB_DATABASE = 'duan_nhom10';
 const DB_USERNAME = 'root';
 const DB_PASSWORD = '';

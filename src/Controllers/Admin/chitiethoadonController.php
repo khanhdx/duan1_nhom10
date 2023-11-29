@@ -12,22 +12,17 @@ class chitiethoadonController extends Controller {
     /* Lấy danh sách */
     public function index() {
         $chitiethoadons = (new chitiethoadon())->all();
-        $hoadons = (new hoadon())->all();
-        $products = (new Product())->all();
+        
 
-        $arrayhoadonsIdName = [];
-        foreach ($hoadons as $hoadones) {
-            $arrayhoadonsIdName[$hoadones['id']] = $hoadones['name'];
+        $arraychitiethoadonsIdName = [];
+        foreach ($chitiethoadons as $chitiethoadon) {
+            $arraychitiethoadonsIdName[$chitiethoadon['id']] = $chitiethoadon['name'];
         }
-        $arrayproductsIdName = [];
-        foreach ($products as $product) {
-            $arrayproductsIdName[$product['id']] = $product['name'];
-        }
-        $this->renderAdmin("chitiethoadon/index", [
+        $this->renderAdmin("chitiethoadon/index",
+        [
             "chitiethoadons" => $chitiethoadons,
-            "hoadons"=> $hoadons,
-            "products"=> $products
-            ] );
+            "arraychitiethoadonsIdName" => $arraychitiethoadonsIdName
+        ]);
     }
 
     /* Thêm mới */

@@ -49,6 +49,7 @@
                                                     <th>Nơi nhận</th>
                                                     <th>Nhân viên giao hàng</th>
                                                     <th>Ghi chú</th>
+                                                    <th>Action</th>
                                                 </tr>
                                             </thead>
 
@@ -57,16 +58,14 @@
                                                     <tr>
                                                         <td><?= $hoadon['name'] ?></td>
                                                         <td><?= $arrayusersIdName[$hoadon['id_kh']] ?></td>
-                                                        <td><?= $hoadon['tinhtrang'] ?></td>
+                                                        <td><?= $arraytinhtrangIdName[$hoadon['tinhtrang']] ?></td>
                                                         <td><?= $hoadon['ngay_lap'] ?></td>
                                                         <td><?= $hoadon['tonggia'] ?></td>
                                                         <td><?= $hoadon['noinhan'] ?></td>
-                                                        <td><?= $hoadon['nvgh'] ?></td>
+                                                        <td><?= $arraynvghIdName[$hoadon['nvgh']] ?></td>
                                                         <td><?= $hoadon['ghichu'] ?></td>
                                                         <td>
                                                             <a href="/admin/hoadon/update?id=<?= $hoadon['id'] ?>" class="btn btn-primary btn-sm">Cập nhật</a>
-
-                                                            <a href="/admin/chitiethoadon?id=<?= $hoadon['id'] ?>" class="btn btn-primary btn-sm">Chi tiết</a>
 
                                                             <form action="/admin/hoadon/delete?id=<?= $hoadon['id'] ?>" method="post">
                                                                 <button type="submit" onclick="return confirm('Bạn có chắc chắn xóa?');" class="btn btn-danger btn-sm">Xóa</button>
