@@ -6,6 +6,7 @@ use Ductong\BaseMvc\Controllers\Admin\DashboardController;
 use Ductong\BaseMvc\Controllers\Admin\ProductController;
 use Ductong\BaseMvc\Controllers\Admin\chitiethoadonController;
 use Ductong\BaseMvc\Controllers\Admin\hoadonController;
+use Ductong\BaseMvc\Controllers\Admin\nvghController;
 use Ductong\BaseMvc\Controllers\Client\HomeController;
 use Ductong\BaseMvc\Router;
 
@@ -39,3 +40,8 @@ $router->addRoute('/admin/hoadon', hoadonController::class, 'index');
 $router->addRoute('/admin/hoadon/create', hoadonController::class, 'create');
 $router->addRoute('/admin/hoadon/update', hoadonController::class, 'update');
 $router->addRoute('/admin/hoadon/delete', hoadonController::class, 'delete');
+
+$router->addRoute('/admin/nvgh', nvghController::class, 'index');
+$router->addRoute('/admin/nvgh/create', nvghController::class, 'create');
+$router->addRoute('/admin/nvgh/update', nvghController::class, 'update');
+$router->addRoute('/admin/nvgh/delete', nvghController::class, 'delete');

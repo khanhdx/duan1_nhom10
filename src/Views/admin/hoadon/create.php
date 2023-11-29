@@ -38,7 +38,7 @@
                                     <form action="" method="post" enctype="multipart/form-data">
 
                                         <label for="name">name</label>
-                                        <input type="name" name="name" id="name" class="form-control">
+                                        <input type="text" name="name" id="name" class="form-control">
 
                                         <label for="id_kh">Khách hàng</label>
                                         <select name="id_kh" id="id_kh" class="form-control">
@@ -50,8 +50,15 @@
 
                                         </select>
 
-                                        <label for="tinhtrang">Tình trạng</label>
-                                        <input type="tinhtrang" name="tinhtrang" id="tinhtrang" class="form-control">
+                                        <label for="tinhtrang">Tình Trạng</label>
+                                        <select name="tinhtrang" id="tinhtrang" class="form-control">
+                                            <option value="" selected>...</option>
+                                            <?php foreach ($tinhtrangs as $tinhtrang) : ?>
+                                                <option value="<?= $tinhtrang['id'] ?>"><?= $tinhtrang['tinhtrang'] ?></option>
+
+                                            <?php endforeach; ?>
+
+                                        </select>
 
                                         <label for="ngay_lap">ngày</label>
                                         <input type="date" name="ngay_lap" id="ngay_lap" class="form-control">
@@ -62,8 +69,15 @@
                                         <label for="noinhan">Nơi nhận</label>
                                         <input type="text" name="noinhan" id="noinhan" class="form-control">
 
-                                        <label for="nvgh">Nhân viên Giao hàng</label>
-                                        <input type="text" name="nvgh" id="nvgh" class="form-control">
+                                        <label for="nvgh">Nhân viên giao hàng</label>
+                                        <select name="nvgh" id="nvgh" class="form-control">
+                                            <option value="" selected>...</option>
+                                            <?php foreach ($nvghs as $nvgh) : ?>
+                                                <option value="<?= $nvgh['id'] ?>"><?= $nvgh['name'] ?></option>
+
+                                            <?php endforeach; ?>
+
+                                        </select>
 
                                         <label for="ghichu">Ghi chú</label>
                                         <textarea name="ghichu" id="ghichu" class="form-control"></textarea>

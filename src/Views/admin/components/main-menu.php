@@ -47,6 +47,15 @@
                         <span class="pcoded-mtext">Quản lý hóa đơn</span>
                     </a>
                 </li>
+
+                <li class>
+                    <a href="/admin/nvgh" class="waves-effect waves-dark">
+                        <span class="pcoded-micon">
+                            <i class="feather icon-layers"></i>
+                        </span>
+                        <span class="pcoded-mtext">Quản lý nhân viên GH</span>
+                    </a>
+                </li>
             </ul>
         </div>
     </div>
