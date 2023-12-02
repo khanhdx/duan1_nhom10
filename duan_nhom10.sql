@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Nov 29, 2023 at 11:19 AM
+-- Generation Time: Nov 30, 2023 at 03:02 AM
 -- Server version: 8.0.30
 -- PHP Version: 8.1.10
 
@@ -65,7 +65,8 @@ CREATE TABLE `comment` (
   `desc` text COLLATE utf8mb4_unicode_ci NOT NULL,
   `id_users` int NOT NULL,
   `id_pro` int NOT NULL,
-  `datecomment` date NOT NULL
+  `datecomment` date NOT NULL,
+  `rely_to_comment_id` int DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
@@ -115,7 +116,8 @@ CREATE TABLE `nvgh` (
 INSERT INTO `nvgh` (`id`, `name`, `sdt_1`, `sdt_2`) VALUES
 (1, 'khanhdx', 123456789, 12345678),
 (2, 'vinhng', 123456, 98765432),
-(3, 'minhquan', 345678, 54326789);
+(3, 'minhquan', 345678, 54326789),
+(5, 'huyn', 123456789, 123456789);
 
 -- --------------------------------------------------------
 
@@ -139,8 +141,8 @@ CREATE TABLE `products` (
 --
 
 INSERT INTO `products` (`id`, `category_id`, `name`, `price`, `price_sale`, `img`, `description`, `is_active`) VALUES
-(1, 1, 'iphone 14 promax ', '2300.00', '1900.00', NULL, 'Màn hình Dynamic Island - Sự biến mất của màn hình tai thỏ thay thế bằng thiết kế viên thuốc, OLED 6,7 inch, hỗ trợ always-on display\r\nCấu hình iPhone 14 Pro Max mạnh mẽ, hiệu năng cực khủng từ chipset A16 Bionic\r\nLàm chủ công nghệ nhiếp ảnh - Camera sau 48MP, cảm biến TOF sống động\r\nPin liền lithium-ion kết hợp cùng công nghệ sạc nhanh cải tiến\r\niPhone 14 Pro Max sở hữu thiết kế màn hình Dynamic Island ấn tượng cùng màn hình OLED 6,7 inch hỗ trợ always-on display và hiệu năng vượt trội với chip A16 Bionic. Bên cạnh đó máy còn sở hữu nhiều nâng cấp về camera với cụm camera sau 48MP, camera trước 12MP dùng bộ nhớ RAM 6GB đa nhiệm vượt trội. Cùng phân tích chi tiết thông số siêu phẩm này ngay sau đây.', 1),
-(2, 1, 'iPhone 13 128GB | Chính hãng VN/A', '2000.00', '1900.00', NULL, 'Hiệu năng vượt trội - Chip Apple A15 Bionic mạnh mẽ, hỗ trợ mạng 5G tốc độ cao\r\nKhông gian hiển thị sống động - Màn hình 6.1\" Super Retina XDR độ sáng cao, sắc nét\r\nTrải nghiệm điện ảnh đỉnh cao - Camera kép 12MP, hỗ trợ ổn định hình ảnh quang học\r\nTối ưu điện năng - Sạc nhanh 20 W, đầy 50% pin trong khoảng 30 phút', 1);
+(1, 1, 'iphone 14 promax ', '2300.00', '1900.00', '/uploads/ip 14 promax vang.jpg', 'Màn hình Dynamic Island - Sự biến mất của màn hình tai thỏ thay thế bằng thiết kế viên thuốc, OLED 6,7 inch, hỗ trợ always-on display\r\nCấu hình iPhone 14 Pro Max mạnh mẽ, hiệu năng cực khủng từ chipset A16 Bionic\r\nLàm chủ công nghệ nhiếp ảnh - Camera sau 48MP, cảm biến TOF sống động\r\nPin liền lithium-ion kết hợp cùng công nghệ sạc nhanh cải tiến\r\niPhone 14 Pro Max sở hữu thiết kế màn hình Dynamic Island ấn tượng cùng màn hình OLED 6,7 inch hỗ trợ always-on display và hiệu năng vượt trội với chip A16 Bionic. Bên cạnh đó máy còn sở hữu nhiều nâng cấp về camera với cụm camera sau 48MP, camera trước 12MP dùng bộ nhớ RAM 6GB đa nhiệm vượt trội. Cùng phân tích chi tiết thông số siêu phẩm này ngay sau đây.', 1),
+(2, 1, 'iPhone 13 128GB | Chính hãng VN/A', '2000.00', '1900.00', '/uploads/ip13.jpg', 'Hiệu năng vượt trội - Chip Apple A15 Bionic mạnh mẽ, hỗ trợ mạng 5G tốc độ cao\r\nKhông gian hiển thị sống động - Màn hình 6.1\" Super Retina XDR độ sáng cao, sắc nét\r\nTrải nghiệm điện ảnh đỉnh cao - Camera kép 12MP, hỗ trợ ổn định hình ảnh quang học\r\nTối ưu điện năng - Sạc nhanh 20 W, đầy 50% pin trong khoảng 30 phút', 1);
 
 -- --------------------------------------------------------
 
@@ -277,7 +279,7 @@ ALTER TABLE `hoadon`
 -- AUTO_INCREMENT for table `nvgh`
 --
 ALTER TABLE `nvgh`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `products`

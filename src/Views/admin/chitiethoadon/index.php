@@ -34,13 +34,14 @@
                                 <div class="card-header">
                                     <h5>chitiethoadon</h5>
 
-                                    <a href="/admin/chitiethoadon/create" class="btn btn-info btn-sm">Tạo mới</a>
+                                    <a href="/admin/hoadon" class="btn btn-info btn-sm">Quay lại</a>
                                 </div>
                                 <div class="card-block">
                                     <div class="dt-responsive table-responsive">
                                         <table id="simpletable" class="table table-striped table-bordered nowrap">
                                             <thead>
                                                 <tr>
+                                                    <th>STT</th>
                                                     <th>Hóa đơn</th>
                                                     <th>Sản phẩm</th>
                                                     <th>Số lượng mua</th>
@@ -49,20 +50,16 @@
                                             </thead>
 
                                             <tbody>
-                                                
+
                                                 <?php foreach ($chitiethoadons as $chitiethoadon) : ?>
                                                     <tr>
-                                                    <td><?= $chitiethoadon['id_hd'] ?></td>
+                                                        <td><?= $chitiethoadon['id'] ?></td>
+                                                        <td><?= $arrayhoadonsIdName[$chitiethoadon['id_hd']] ?></td>
                                                         <td><?= $arraysanphamsIdName[$chitiethoadon['id_sp']] ?></td>
                                                         <td><?= $chitiethoadon['soluongmua'] ?></td>
-                                                        <td><?= $chitiethoadon['dongia'] ?></td>
-                                                        <td>
-                                                            <a href="/admin/chitiethoadon/update?id=<?= $chitiethoadon['id'] ?>" class="btn btn-primary btn-sm">Cập nhật</a>
+                                                        <td><?= $chitiethoadon['price_sale'] ?></td>
 
-                                                            <form action="/admin/chitiethoadon/delete?id=<?= $chitiethoadon['id'] ?>" method="post">
-                                                                <button type="submit" onclick="return confirm('Bạn có chắc chắn xóa?');" class="btn btn-danger btn-sm">Xóa</button>
-                                                            </form>
-                                                        </td>
+
                                                     </tr>
                                                 <?php endforeach; ?>
                                             </tbody>
