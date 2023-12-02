@@ -12,7 +12,7 @@ class LogoutController extends Controller
     }
 
     /*
-        Đây là hàm hiển thị danh sách userr
+        Đây là hàm hiển thị danh sách user
     */
     public function logout() {
         unset($_SESSION['user']);

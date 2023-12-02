@@ -57,7 +57,7 @@
                                             <label for="content">Date:</label>
                                             <textarea name="date" id="date_comment" class="form-control" type="date" pattern="\d{2}-\d{2}-\d{4}" placeholder="DD-MM-YYYY" required></textarea>
                                         </div>
-                                        <!-- Thêm các trường bình luận khác nếu cần -->
+                                        <!-- Thêm các trường bình luận khác nếu cầ -->
                                         <button type="submit" name="btn-submit-comment" class="btn btn-primary">Tạo mới</button>
                                     </form>
                                 </div>

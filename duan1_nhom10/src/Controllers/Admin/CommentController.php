@@ -20,7 +20,7 @@ class CommentController extends Controller {
                     'user_id' => $_POST['user_id'],
                     'product_id' => $_POST['product_id'],
                     'content' => $_POST['content'],
-                    'date_comment' => $_POST['date_comment'], // Thêm trường này
+                    'date_comment' => $_POST['date_comment'], // Thêm trường nàyy
                 ];
 
                 (new Comment())->insert($data);

@@ -8,7 +8,7 @@ use Ductong\BaseMvc\Models\User;
 class UserController extends Controller
 {
     /*
-        Đây là hàm hiển thị danh sách userr
+        Đây là hàm hiển thị danh sách user
     */
     public function index() {
         $users = (new User)->all();

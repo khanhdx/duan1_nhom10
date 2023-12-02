@@ -6,7 +6,7 @@
                 <div class="page-header-title">
                     <i class="feather icon-home bg-c-blue"></i>
                     <div class="d-inline">
-                        <h5>Comment</h5>
+                        <h5>Commentt</h5>
                     </div>
                 </div>
             </div>

@@ -34,7 +34,8 @@ class User extends Model {
         return $user;
     }
     
-    public function isAdmin($userId){
+    public function isAdmin($userId)
+    {
         $user = new User();
         $user->checkConnection();
     

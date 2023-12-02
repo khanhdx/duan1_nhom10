@@ -11,7 +11,7 @@ class DashboardController extends Controller
         check_auth();
     }
     public function index() {
-        // Kiểm tra quyền admin trước khi hiển thị trang Dashboardd
+        // Kiểm tra quyền admin trước khi hiển thị trang Dashboard
         if (!isset($_SESSION['user']) || $_SESSION['user']['is_admin'] != 1) {
             header('Location: /login'); // Chuyển hướng đến trang đăng nhập nếu không phải admin
             exit();
