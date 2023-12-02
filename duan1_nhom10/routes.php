@@ -9,6 +9,8 @@ use Ductong\BaseMvc\Controllers\Admin\hoadonController;
 use Ductong\BaseMvc\Controllers\Admin\nvghController;
 use Ductong\BaseMvc\Controllers\Client\HomeController;
 use Ductong\BaseMvc\Controllers\Admin\CommentController;
+use Ductong\BaseMvc\Controllers\Auth\LoginController;
+use Ductong\BaseMvc\Controllers\Auth\LogoutController;
 
 use Ductong\BaseMvc\Router;
 
@@ -16,7 +18,7 @@ $router = new Router();
 
 $router->addRoute('/', HomeController::class, 'index');
 
-$router->addRoute('/admin/dashboard', DashboardController::class, 'index');
+$router->addRoute('/admin/dashboard', DashboardController::class, 'index'); 
 
 $router->addRoute('/admin/users', UserController::class, 'index');
 $router->addRoute('/admin/users/create', UserController::class, 'create');
@@ -52,3 +54,12 @@ $router->addRoute('/admin/comments', CommentController::class, 'index'); // Thê
 $router->addRoute('/admin/comments/create', CommentController::class, 'create'); // Thêm vào
 $router->addRoute('/admin/comments/update', CommentController::class, 'update'); // Thêm vào
 $router->addRoute('/admin/comments/delete', CommentController::class, 'delete'); // Thêm vào
+
+$router->addRoute('/login', LoginController::class, 'showForm');
+$router->addRoute('/handleLogin', LoginController::class, 'handleLogin');
+$router->addRoute('/logout', LogoutController::class, 'logout');
+
+// ...
+$router->addRoute('/admin/dashboard', DashboardController::class, 'index');
+$router->addRoute('/', HomeController::class, 'index');
+// ...
