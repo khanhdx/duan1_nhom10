@@ -41,7 +41,7 @@
                                         <table id="simpletable" class="table table-striped table-bordered nowrap">
                                             <thead>
                                                 <tr>
-                                                    <th>ID</th>
+                                                    <th>STT</th>
                                                     <th>Name</th>
                                                     <th>Email</th>
                                                     <th>Address</th>

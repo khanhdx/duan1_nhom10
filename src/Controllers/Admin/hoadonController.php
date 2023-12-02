@@ -7,12 +7,14 @@ use Ductong\BaseMvc\Models\hoadon;
 use Ductong\BaseMvc\Models\User;
 use Ductong\BaseMvc\Models\tinhtrang;
 use Ductong\BaseMvc\Models\nvgh;
+use Ductong\BaseMvc\Models\Product;
 
 class hoadonController extends Controller {
 
     /* Lấy danh sách */
     public function index() {
-        $hoadons = (new Hoadon())->all();
+        $hoadons = (new hoadon())->all();
+
         $use = (new User())->all();
         $arrayusersIdName = [];
         foreach ($use as $users) {
@@ -31,6 +33,11 @@ class hoadonController extends Controller {
             $arraynvghIdName[$nvghs['id']] = $nvghs['name'];
         }
 
+        $product = (new Product())->all();
+        $arrayproductsIdName = [];
+        foreach ($product as $products) {
+            $arrayproductsIdName[$products['id']] = $products['name'];
+        }
 
         $this->renderAdmin("hoadon/index",
         [
@@ -38,6 +45,7 @@ class hoadonController extends Controller {
             "arrayusersIdName" => $arrayusersIdName,
             "arraytinhtrangIdName" => $arraytinhtrangIdName,
             "arraynvghIdName" => $arraynvghIdName,
+            "arrayproductsIdName" => $arrayproductsIdName,
         ]);
     }
 
@@ -47,6 +55,7 @@ class hoadonController extends Controller {
             $data = [
                 'name' => $_POST['name'],
                 'id_kh' => $_POST['id_kh'],
+                'id_sp' => $_POST['id_sp'],
                 'tinhtrang' => $_POST['tinhtrang'],
                 'ngay_lap' => $_POST['ngay_lap'],
                 'tonggia' => $_POST['tonggia'],
@@ -55,16 +64,17 @@ class hoadonController extends Controller {
                 'ghichu' => $_POST['ghichu'],
             ];
 
-            (new Hoadon())->insert($data);
+            (new hoadon())->insert($data);
 
             header('Location: /admin/hoadon');
         }
 
+        $products = (new Product())->all();
         $users = (new User())->all();
         $tinhtrangs = (new tinhtrang())->all();
         $nvghs = (new nvgh())->all();
         $hoadon = (new hoadon())->findOne($_GET["id"]);
-        $this->renderAdmin("hoadon/create",["hoadons" => $hoadon, "users" => $users, "tinhtrangs" => $tinhtrangs, "nvghs" => $nvghs] );
+        $this->renderAdmin("hoadon/create",["hoadons" => $hoadon, "users" => $users, "tinhtrangs" => $tinhtrangs, "nvghs" => $nvghs, "products" => $products] );
     }
 
     /* Cập nhật */
@@ -74,7 +84,8 @@ class hoadonController extends Controller {
             $data = [      
                 'name' => $_POST['name'],      
                 'id_kh' => $_POST['id_kh'],
-                'tinhtrang' => "đang vận chuyển",
+                'id_sp' => $_POST['id_sp'],
+                'tinhtrang' => $_POST['tinhtrang'],
                 'ngay_lap' => $_POST['ngay_lap'],
                 'tonggia' => $_POST['tonggia'],
                 'noinhan' => $_POST['noinhan'],
@@ -89,12 +100,14 @@ class hoadonController extends Controller {
             (new hoadon())->update($data, $conditions);
         }
 
+
+        $products = (new Product())->all();
         $users = (new User())->all();
         $tinhtrangs = (new tinhtrang())->all();
         $nvghs = (new nvgh())->all();
         $hoadons = (new hoadon())->findOne($_GET["id"]);
 
-        $this->renderAdmin("hoadon/update", ["hoadons" => $hoadons, "users" => $users, "tinhtrangs" => $tinhtrangs, "nvghs" => $nvghs ]);
+        $this->renderAdmin("hoadon/update", ["hoadons" => $hoadons, "users" => $users, "tinhtrangs" => $tinhtrangs, "nvghs" => $nvghs, "products" => $products ]);
     }
 
     /* Xóa */

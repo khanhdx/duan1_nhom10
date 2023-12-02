@@ -50,6 +50,16 @@
 
                                         </select>
 
+                                        <label for="id_sp">Sản Phẩm</label>
+                                        <select name="id_sp" id="id_sp" class="form-control">
+                                            <option value="" selected>...</option>
+                                            <?php foreach ($products as $produc) : ?>
+                                                <option value="<?= $produc['id'] ?>"><?= $produc['name'] ?></option>
+
+                                            <?php endforeach; ?>
+
+                                        </select>
+
                                         <label for="tinhtrang">Tình Trạng</label>
                                         <select name="tinhtrang" id="tinhtrang" class="form-control">
                                             <option value="" selected>...</option>
@@ -64,7 +74,7 @@
                                         <input type="date" name="ngay_lap" id="ngay_lap" class="form-control">
 
                                         <label for="tonggia">Tổng giá</label>
-                                        <input type="text" name="tonggia" id="tonggia" class="form-control">
+                                        <input type="number" name="tonggia" id="tonggia" class="form-control">
 
                                         <label for="noinhan">Nơi nhận</label>
                                         <input type="text" name="noinhan" id="noinhan" class="form-control">

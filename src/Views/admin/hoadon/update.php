@@ -36,32 +36,45 @@
                                 </div>
                                 <div class="card-block">
                                     <form action="" method="post" enctype="multipart/form-data">
-                                        <label for="name">name</label>
-                                        <input type="name" name="name" id="name" class="form-control">
+                                        <label for="name">Name</label>
+                                        <input type="text" name="name" id="name" class="form-control" value="<?= $hoadons['name'] ?>">
 
                                         <label for="id_kh">Khách hàng</label>
                                         <select name="id_kh" id="id_kh" class="form-control">
-                                            <option value="" selected>...</option>
                                             <?php foreach ($users as $user) : ?>
-                                                <option value="<?= $user['id'] ?>"><?= $user['name'] ?></option>
+                                                <option <?= $hoadons['name'] == $user['id'] ? 'selected' : '' ?> value="<?= $user['id'] ?>">
 
+                                                    <?= $user['name'] ?>
+
+                                                </option>
                                             <?php endforeach; ?>
-
                                         </select>
 
-                                        <label for="tinhtrang">Tình Trạng</label>
-                                        <select name="tinhtrang" id="tinhtrang" class="form-control">
-                                            <option value="" selected>...</option>
-                                            <?php foreach ($tinhtrangs as $tinhtrang) : ?>
-                                                <option value="<?= $tinhtrang['id'] ?>"><?= $tinhtrang['tinhtrang'] ?></option>
+                                        <label for="id_sp">Sản phẩm</label>
+                                        <select name="id_sp" id="id_sp" class="form-control">
+                                            <?php foreach ($products as $product) : ?>
+                                                <option <?= $hoadons['name'] == $product['id'] ? 'selected' : '' ?> value="<?= $product['id'] ?>">
 
+                                                    <?= $product['name'] ?>
+
+                                                </option>
                                             <?php endforeach; ?>
+                                        </select>
 
+                                        <label for="tinhtrang">Tình trạng</label>
+                                        <select name="tinhtrang" id="tinhtrang" class="form-control">
+                                            <?php foreach ($tinhtrangs as $tinhtrang) : ?>
+                                                <option <?= $hoadons['tinhtrang'] == $tinhtrang['id'] ? 'selected' : '' ?> value="<?= $tinhtrang['id'] ?>">
+
+                                                    <?= $tinhtrang['tinhtrang'] ?>
+
+                                                </option>
+                                            <?php endforeach; ?>
                                         </select>
 
                                         <label for="ngay_lap">Ngày lập</label>
                                         <input type="date" name="ngay_lap" id="ngay_lap" class="form-control"><?= $hoadons['ngay_lap'] ?></input>
-
+                                        <br>
                                         <label for="tonggia">Tổng giá</label>
                                         <input type="text" name="tonggia" id="tonggia" class="form-control" value="<?= $hoadons['tonggia'] ?>">
 
@@ -70,12 +83,13 @@
 
                                         <label for="nvgh">Nhân viên giao hàng</label>
                                         <select name="nvgh" id="nvgh" class="form-control">
-                                            <option value="" selected>...</option>
                                             <?php foreach ($nvghs as $nvgh) : ?>
-                                                <option value="<?= $nvgh['id'] ?>"><?= $nvgh['name'] ?></option>
+                                                <option <?= $hoadons['nvgh'] == $nvgh['id'] ? 'selected' : '' ?> value="<?= $nvgh['id'] ?>">
 
+                                                    <?= $nvgh['name'] ?>
+
+                                                </option>
                                             <?php endforeach; ?>
-
                                         </select>
 
                                         <label for="ghichu">Ghi chú</label>
