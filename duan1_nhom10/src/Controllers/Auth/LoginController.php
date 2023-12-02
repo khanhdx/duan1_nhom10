@@ -20,7 +20,7 @@ class LoginController extends Controller
         $userDetails = $user->getUserByEmailPassword($email, $password);
     
         if ($userDetails) {
-            // Kiểm tra xem người dùng có trong bảng admin hay không
+            // Kiểm tra xem người dùng có trong bảng admin hay khôngg
             if ($userDetails['is_admin']) {
             $_SESSION['user'] = $userDetails;
                 // Người dùng là admin, chuyển hướng đến trang admin
