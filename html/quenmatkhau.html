@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Biểu mẫu Đăng ký</title>
-    <link rel="stylesheet" href="css/dky.css">
+    <link rel="stylesheet" href="/css/dky.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css">
 </head>
 
@@ -15,7 +15,7 @@
         <header>
             <div class="trangchu">
                 <div class="logo">
-                    <img src="img/logo2.jpg" alt="">
+                    <img src="/img/logo2.jpg" alt="">
                 </div>
                 <ul class="menu2">
                     <li><a href="index.html">Trang chủ</a></li>
@@ -75,7 +75,7 @@
             </div>
         </header>
         <div class="banner">
-            <img id="banner" src="img/anh0.jpg" alt="">
+            <img id="banner" src="/img/anh0.jpg" alt="">
 
         </div>
     </div>
@@ -100,7 +100,7 @@
         var album = [];
         for (var i = 0; i < 5; i++) {
             album[i] = new Image();
-            album[i].src = "./img/anh" + i + ".jpg";
+            album[i].src = "../img/anh" + i + ".jpg";
         }
         var interval = setInterval(slideshow, 2000);
         index = 0;
