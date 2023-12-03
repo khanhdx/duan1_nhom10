@@ -7,14 +7,22 @@ use Ductong\BaseMvc\Controllers\Admin\ProductController;
 use Ductong\BaseMvc\Controllers\Admin\chitiethoadonController;
 use Ductong\BaseMvc\Controllers\Admin\hoadonController;
 use Ductong\BaseMvc\Controllers\Admin\nvghController;
+use Ductong\BaseMvc\Controllers\Auth\LoginController;
+use Ductong\BaseMvc\Controllers\Auth\LogoutController;
 use Ductong\BaseMvc\Controllers\Client\HomeController;
 use Ductong\BaseMvc\Router;
 
 $router = new Router();
 
+
 $router->addRoute('/', HomeController::class, 'index');
 
 $router->addRoute('/admin/dashboard', DashboardController::class, 'index');
+
+$router->addRoute('/login', LoginController::class, 'showForm');
+$router->addRoute('/handleLogin', LoginController::class, 'handleLogin');
+$router->addRoute('/logout', LogoutController::class, 'logout');
+
 
 $router->addRoute('/admin/users', UserController::class, 'index');
 $router->addRoute('/admin/users/create', UserController::class, 'create');

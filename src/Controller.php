@@ -10,7 +10,7 @@ class Controller {
         include "Views/$view.php";
     }
 
-    // Render ra giao diện Admin
+    // Render ra giao diện Adminn
     protected function renderAdmin($view, $data = []) {
         $data['view'] = $view;
 
