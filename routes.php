@@ -8,11 +8,13 @@ use Ductong\BaseMvc\Controllers\Admin\chitiethoadonController;
 use Ductong\BaseMvc\Controllers\Admin\hoadonController;
 use Ductong\BaseMvc\Controllers\Admin\nvghController;
 use Ductong\BaseMvc\Controllers\Client\HomeController;
+use Ductong\BaseMvc\Controllers\Client\chitietspController;
 use Ductong\BaseMvc\Router;
 
 $router = new Router();
 
-$router->addRoute('/', HomeController::class, 'index');
+$router->addRoute('/', HomeController::class, 'home');
+$router->addRoute('/', chitietspController::class, 'chitietsp');
 
 $router->addRoute('/admin/dashboard', DashboardController::class, 'index');
 
