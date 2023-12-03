@@ -11,7 +11,7 @@ class DashboardController extends Controller
     }
     
     /*
-        Đây là hàm hiển thị danh sách user
+        Đây là hàm hiển thị danh sách userr
     */
     public function index() {        
         $this->renderAdmin('dashboard');

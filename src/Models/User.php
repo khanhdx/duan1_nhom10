@@ -14,6 +14,7 @@ class User extends Model {
         'is_admin',
     ];
     public function getUserByEmailPassword($email, $password)
+    
     {
         $sql = "
             SELECT 

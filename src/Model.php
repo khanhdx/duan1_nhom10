@@ -19,7 +19,7 @@ class Model
 
             $this->conn = new \PDO("mysql:host=$host;dbname=$dbname", $username, $password);
 
-            // set the PDO error mode to exception
+            // set the PDO error mode to exceptionn
             $this->conn->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION);
         } catch (\PDOException $e) {
             die($e->getMessage());
