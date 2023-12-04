@@ -8,21 +8,25 @@
     <meta content="Free HTML Templates" name="keywords">
     <meta content="Free HTML Templates" name="description">
 
-    <?php require_once '/laragon/www/duan1_nhom10/src/Views/client/home/head.php' ?>
+    <?php require_once 'contents/head.php' ?>
 
 </head>
 
 <body>
     <!-- Topbar Start -->
-    <?php require_once '/laragon/www/duan1_nhom10/src/Views/client/home/topbar.php' ?>
+    <?php require_once 'contents/topbar.php' ?>
     <!-- Topbar End -->
 
     <!-- Navbar Start -->
-    <?php require_once '/laragon/www/duan1_nhom10/src/Views/client/home/navbar.php' ?>
+    <?php require_once 'contents/navbar.php' ?>
     <!-- Navbar End -->
 
+    <!-- banner Start -->
+    <?php require_once 'contents/banner_cart.php' ?>
+    <!-- banner End -->
+
     <!-- content Start -->
-    <?php require_once '/laragon/www/duan1_nhom10/src/Views/client/home/content.php' ?>
+    <?php require_once 'contents/giohang.php' ?>
     <!-- content End -->
 
     <!-- Vendor Start -->
@@ -30,7 +34,7 @@
     <!-- Vendor End -->
 
     <!-- Footer Start -->
-    <?php require_once '/laragon/www/duan1_nhom10/src/Views/client/home/foot.php' ?>
+    <?php require_once 'contents/foot.php' ?>
     <!-- Footer End -->
 </body>
 

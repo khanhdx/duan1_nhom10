@@ -22,7 +22,7 @@
     <!-- Navbar End -->
 
     <!-- content Start -->
-    <?php require_once 'contents/spchitiet.php' ?>
+    <?php require_once 'contents/sanpham.php' ?>
     <!-- content End -->
 
     <!-- Vendor Start -->
@@ -32,6 +32,9 @@
     <!-- Footer Start -->
     <?php require_once 'contents/foot.php' ?>
     <!-- Footer End -->
+
+
+    
 </body>
 
 </html>

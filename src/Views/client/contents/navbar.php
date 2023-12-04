@@ -1,3 +1,4 @@
+<!-- Navbar Start -->
 <div class="container-fluid mb-5">
         <div class="row border-top px-xl-5">
             <div class="col-lg-3 d-none d-lg-block">
@@ -37,17 +38,17 @@
                     </button>
                     <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
                         <div class="navbar-nav mr-auto py-0">
-                            <a href="home.php" class="nav-item nav-link active">Home</a>
-                            <a href="home.php" class="nav-item nav-link">Shop</a>
-                            <a href="chitietsp.php" class="nav-item nav-link">Shop Detail</a>
+                            <a href="/" class="nav-item nav-link active">Home</a>
+                            <a href="/client/sanpham" class="nav-item nav-link">Shop</a>
+                            <a href="/client/ChiTietsp" class="nav-item nav-link">Shop Detail</a>
                             <div class="nav-item dropdown">
                                 <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Pages</a>
                                 <div class="dropdown-menu rounded-0 m-0">
-                                    <a href="cart.html" class="dropdown-item">Shopping Cart</a>
-                                    <a href="checkout.html" class="dropdown-item">Checkout</a>
+                                    <a href="/client/GioHang" class="dropdown-item">Shopping Cart</a>
+                                    <a href="" class="dropdown-item">Checkout</a>
                                 </div>
                             </div>
-                            <a href="contact.html" class="nav-item nav-link">Contact</a>
+                            <a href="" class="nav-item nav-link">Contact</a>
                         </div>
                         <div class="navbar-nav ml-auto py-0">
                             <a href="" class="nav-item nav-link">Login</a>
@@ -58,7 +59,7 @@
                 <div id="header-carousel" class="carousel slide" data-ride="carousel">
                     <div class="carousel-inner">
                         <div class="carousel-item active" style="height: 410px;">
-                            <img class="img-fluid" src="img/ip12 xanh den.jpg" alt="Image">
+                            <img class="img-fluid" src="../img/ip12 xanh den.jpg" alt="Image">
                             <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
                                 <div class="p-3" style="max-width: 700px;">
                                     <h4 class="text-light text-uppercase font-weight-medium mb-3">10% Off Your First Order</h4>
@@ -68,7 +69,7 @@
                             </div>
                         </div>
                         <div class="carousel-item" style="height: 410px;">
-                            <img class="img-fluid" src="img/ip13.jpg" alt="Image">
+                            <img class="img-fluid" src="../img/ip13.jpg" alt="Image">
                             <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
                                 <div class="p-3" style="max-width: 700px;">
                                     <h4 class="text-light text-uppercase font-weight-medium mb-3">10% Off Your First Order</h4>
@@ -92,3 +93,4 @@
             </div>
         </div>
     </div>
+    <!-- Navbar End -->
