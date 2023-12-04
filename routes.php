@@ -10,12 +10,18 @@ use Ductong\BaseMvc\Controllers\Admin\nvghController;
 use Ductong\BaseMvc\Controllers\Auth\LoginController;
 use Ductong\BaseMvc\Controllers\Auth\LogoutController;
 use Ductong\BaseMvc\Controllers\Client\HomeController;
+use Ductong\BaseMvc\Controllers\Client\SanPhamController;
+use Ductong\BaseMvc\Controllers\Client\ChiTietspController;
+use Ductong\BaseMvc\Controllers\Client\GioHangController;
 use Ductong\BaseMvc\Router;
 
 $router = new Router();
 
 
 $router->addRoute('/', HomeController::class, 'index');
+$router->addRoute('/client/sanpham', SanPhamController::class, 'index');
+$router->addRoute('/client/ChiTietsp', ChiTietspController::class, 'index');
+$router->addRoute('/client/GioHang', GioHangController::class, 'index');
 
 $router->addRoute('/admin/dashboard', DashboardController::class, 'index');
 
