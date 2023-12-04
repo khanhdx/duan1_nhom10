@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Nov 29, 2023 at 11:19 AM
+-- Generation Time: Dec 02, 2023 at 03:15 PM
 -- Server version: 8.0.30
 -- PHP Version: 8.1.10
 
@@ -38,21 +38,30 @@ CREATE TABLE `categories` (
 
 INSERT INTO `categories` (`id`, `name`) VALUES
 (1, 'iphone'),
-(2, 'oppo');
+(2, 'oppo'),
+(3, 'vivo');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `cbr_donhang`
+-- Table structure for table `chitiethoadon`
 --
 
-CREATE TABLE `cbr_donhang` (
+CREATE TABLE `chitiethoadon` (
   `id` int NOT NULL,
   `id_hd` int NOT NULL,
   `id_sp` int NOT NULL,
   `soluongmua` int NOT NULL,
-  `dongia` int NOT NULL
+  `price_sale` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `chitiethoadon`
+--
+
+INSERT INTO `chitiethoadon` (`id`, `id_hd`, `id_sp`, `soluongmua`, `price_sale`) VALUES
+(3, 7, 3, 2, 2222),
+(4, 8, 2, 3, 12000);
 
 -- --------------------------------------------------------
 
@@ -65,7 +74,8 @@ CREATE TABLE `comment` (
   `desc` text COLLATE utf8mb4_unicode_ci NOT NULL,
   `id_users` int NOT NULL,
   `id_pro` int NOT NULL,
-  `datecomment` date NOT NULL
+  `datecomment` date NOT NULL,
+  `rely_to_comment_id` int DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
@@ -77,6 +87,7 @@ CREATE TABLE `comment` (
 CREATE TABLE `hoadon` (
   `id` int NOT NULL,
   `id_kh` int NOT NULL,
+  `id_sp` int NOT NULL,
   `tinhtrang` int NOT NULL,
   `ngay_lap` date NOT NULL,
   `tonggia` int NOT NULL,
@@ -90,10 +101,9 @@ CREATE TABLE `hoadon` (
 -- Dumping data for table `hoadon`
 --
 
-INSERT INTO `hoadon` (`id`, `id_kh`, `tinhtrang`, `ngay_lap`, `tonggia`, `noinhan`, `nvgh`, `ghichu`, `name`) VALUES
-(1, 1, 1, '2023-11-29', 1900, 'thanhoai', 1, 'kkkkk', 'hoadon1'),
-(2, 2, 2, '2023-11-29', 2000, 'phudien', 2, 'aaaaaaa', 'hoadon2'),
-(3, 3, 3, '2023-11-29', 2100, 'quocoai', 2, 'qqqqqq', 'hoadon3');
+INSERT INTO `hoadon` (`id`, `id_kh`, `id_sp`, `tinhtrang`, `ngay_lap`, `tonggia`, `noinhan`, `nvgh`, `ghichu`, `name`) VALUES
+(7, 3, 3, 3, '2023-12-01', 1111, 'thanhoai123', 3, 'qqqq', 'wwww'),
+(8, 2, 2, 3, '2023-12-03', 4000, 'ddd', 1, 'áasasasasasaaas', 'hoadon99');
 
 -- --------------------------------------------------------
 
@@ -115,7 +125,8 @@ CREATE TABLE `nvgh` (
 INSERT INTO `nvgh` (`id`, `name`, `sdt_1`, `sdt_2`) VALUES
 (1, 'khanhdx', 123456789, 12345678),
 (2, 'vinhng', 123456, 98765432),
-(3, 'minhquan', 345678, 54326789);
+(3, 'minhquan', 345678, 54326789),
+(5, 'huyn', 123456789, 123456789);
 
 -- --------------------------------------------------------
 
@@ -127,8 +138,8 @@ CREATE TABLE `products` (
   `id` int NOT NULL,
   `category_id` int NOT NULL,
   `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `price` decimal(12,2) NOT NULL,
-  `price_sale` decimal(12,2) DEFAULT NULL,
+  `price` int NOT NULL,
+  `price_sale` int DEFAULT NULL,
   `img` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `description` text COLLATE utf8mb4_unicode_ci,
   `is_active` tinyint(1) NOT NULL
@@ -139,8 +150,10 @@ CREATE TABLE `products` (
 --
 
 INSERT INTO `products` (`id`, `category_id`, `name`, `price`, `price_sale`, `img`, `description`, `is_active`) VALUES
-(1, 1, 'iphone 14 promax ', '2300.00', '1900.00', NULL, 'Màn hình Dynamic Island - Sự biến mất của màn hình tai thỏ thay thế bằng thiết kế viên thuốc, OLED 6,7 inch, hỗ trợ always-on display\r\nCấu hình iPhone 14 Pro Max mạnh mẽ, hiệu năng cực khủng từ chipset A16 Bionic\r\nLàm chủ công nghệ nhiếp ảnh - Camera sau 48MP, cảm biến TOF sống động\r\nPin liền lithium-ion kết hợp cùng công nghệ sạc nhanh cải tiến\r\niPhone 14 Pro Max sở hữu thiết kế màn hình Dynamic Island ấn tượng cùng màn hình OLED 6,7 inch hỗ trợ always-on display và hiệu năng vượt trội với chip A16 Bionic. Bên cạnh đó máy còn sở hữu nhiều nâng cấp về camera với cụm camera sau 48MP, camera trước 12MP dùng bộ nhớ RAM 6GB đa nhiệm vượt trội. Cùng phân tích chi tiết thông số siêu phẩm này ngay sau đây.', 1),
-(2, 1, 'iPhone 13 128GB | Chính hãng VN/A', '2000.00', '1900.00', NULL, 'Hiệu năng vượt trội - Chip Apple A15 Bionic mạnh mẽ, hỗ trợ mạng 5G tốc độ cao\r\nKhông gian hiển thị sống động - Màn hình 6.1\" Super Retina XDR độ sáng cao, sắc nét\r\nTrải nghiệm điện ảnh đỉnh cao - Camera kép 12MP, hỗ trợ ổn định hình ảnh quang học\r\nTối ưu điện năng - Sạc nhanh 20 W, đầy 50% pin trong khoảng 30 phút', 1);
+(1, 1, 'iphone 14 promax ', 2300, 1900, '/uploads/ip 14 promax vang.jpg', 'Màn hình Dynamic Island - Sự biến mất của màn hình tai thỏ thay thế bằng thiết kế viên thuốc, OLED 6,7 inch, hỗ trợ always-on display\r\nCấu hình iPhone 14 Pro Max mạnh mẽ, hiệu năng cực khủng từ chipset A16 Bionic\r\nLàm chủ công nghệ nhiếp ảnh - Camera sau 48MP, cảm biến TOF sống động\r\nPin liền lithium-ion kết hợp cùng công nghệ sạc nhanh cải tiến\r\niPhone 14 Pro Max sở hữu thiết kế màn hình Dynamic Island ấn tượng cùng màn hình OLED 6,7 inch hỗ trợ always-on display và hiệu năng vượt trội với chip A16 Bionic. Bên cạnh đó máy còn sở hữu nhiều nâng cấp về camera với cụm camera sau 48MP, camera trước 12MP dùng bộ nhớ RAM 6GB đa nhiệm vượt trội. Cùng phân tích chi tiết thông số siêu phẩm này ngay sau đây.', 1),
+(2, 1, 'iPhone 13 128GB | Chính hãng VN/A', 2000, 1900, '/uploads/ip13.jpg', 'Hiệu năng vượt trội - Chip Apple A15 Bionic mạnh mẽ, hỗ trợ mạng 5G tốc độ cao\r\nKhông gian hiển thị sống động - Màn hình 6.1\" Super Retina XDR độ sáng cao, sắc nét\r\nTrải nghiệm điện ảnh đỉnh cao - Camera kép 12MP, hỗ trợ ổn định hình ảnh quang học\r\nTối ưu điện năng - Sạc nhanh 20 W, đầy 50% pin trong khoảng 30 phút', 1),
+(3, 1, 'iPhone XS Max 64GB', 2000, 1700, '/uploads/ip x vang.jpg', 'meoemo', 1),
+(4, 3, 'vivo V29E 8GB 256GB', 1200, 900, '/uploads/vivo-v29e_3__1_2.webp', 'Thông tin sản phẩm\r\n\r\nMới, đầy đủ phụ kiện từ nhà sản xuất\r\nVivo V29E\r\nSách hướng dẫn\r\nDây USB\r\nCủ sạc\r\nQue lấy SIM\r\nỐp lưng\r\nMiếng dán màn hình\r\nThẻ bảo hành\r\nBảo hành 12 tháng tại trung tâm bảo hành Chính hãng. 1 đổi 1 trong 30 ngày nếu có lỗi phần cứng từ nhà sản xuất. (xem chi tiết)\r\nGiá sản phẩm đã bao gồm VAT', 1);
 
 -- --------------------------------------------------------
 
@@ -196,9 +209,9 @@ ALTER TABLE `categories`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `cbr_donhang`
+-- Indexes for table `chitiethoadon`
 --
-ALTER TABLE `cbr_donhang`
+ALTER TABLE `chitiethoadon`
   ADD PRIMARY KEY (`id`),
   ADD KEY `hoaodon` (`id_hd`),
   ADD KEY `sanpham` (`id_sp`);
@@ -218,7 +231,8 @@ ALTER TABLE `hoadon`
   ADD PRIMARY KEY (`id`),
   ADD KEY `tinhtrang_1` (`tinhtrang`),
   ADD KEY `nvgh_1` (`nvgh`),
-  ADD KEY `user_1` (`id_kh`);
+  ADD KEY `user_1` (`id_kh`),
+  ADD KEY `products_1` (`id_sp`);
 
 --
 -- Indexes for table `nvgh`
@@ -253,13 +267,13 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `categories`
 --
 ALTER TABLE `categories`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT for table `cbr_donhang`
+-- AUTO_INCREMENT for table `chitiethoadon`
 --
-ALTER TABLE `cbr_donhang`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT;
+ALTER TABLE `chitiethoadon`
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `comment`
@@ -271,19 +285,19 @@ ALTER TABLE `comment`
 -- AUTO_INCREMENT for table `hoadon`
 --
 ALTER TABLE `hoadon`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `nvgh`
 --
 ALTER TABLE `nvgh`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `tinhtrang`
@@ -295,16 +309,16 @@ ALTER TABLE `tinhtrang`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- Constraints for dumped tables
 --
 
 --
--- Constraints for table `cbr_donhang`
+-- Constraints for table `chitiethoadon`
 --
-ALTER TABLE `cbr_donhang`
+ALTER TABLE `chitiethoadon`
   ADD CONSTRAINT `hoaodon` FOREIGN KEY (`id_hd`) REFERENCES `hoadon` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT,
   ADD CONSTRAINT `sanpham` FOREIGN KEY (`id_sp`) REFERENCES `products` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT;
 
@@ -320,6 +334,7 @@ ALTER TABLE `comment`
 --
 ALTER TABLE `hoadon`
   ADD CONSTRAINT `nvgh_1` FOREIGN KEY (`nvgh`) REFERENCES `nvgh` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT,
+  ADD CONSTRAINT `products_1` FOREIGN KEY (`id_sp`) REFERENCES `products` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT,
   ADD CONSTRAINT `tinhtrang_1` FOREIGN KEY (`tinhtrang`) REFERENCES `tinhtrang` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT,
   ADD CONSTRAINT `user_1` FOREIGN KEY (`id_kh`) REFERENCES `users` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT;
 

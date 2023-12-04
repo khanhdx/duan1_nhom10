@@ -14,69 +14,23 @@ class chitiethoadonController extends Controller {
         $chitiethoadons = (new chitiethoadon())->all();
         
 
-        $arraychitiethoadonsIdName = [];
-        foreach ($chitiethoadons as $chitiethoadon) {
-            $arraychitiethoadonsIdName[$chitiethoadon['id']] = $chitiethoadon['name'];
+        $hoadons = (new hoadon())->all();
+        $arrayhoadonsIdName = [];
+        foreach ($hoadons as $hoadon) {
+            $arrayhoadonsIdName[$hoadon['id']] = $hoadon['name'];
         }
+
+        $sanphams = (new Product())->all();
+        $arraysanphamsIdName = [];
+        foreach ($sanphams as $sanpham) {
+            $arraysanphamsIdName[$sanpham['id']] = $sanpham['name'];
+        }
+
         $this->renderAdmin("chitiethoadon/index",
         [
             "chitiethoadons" => $chitiethoadons,
-            "arraychitiethoadonsIdName" => $arraychitiethoadonsIdName
+            "arrayhoadonsIdName" => $arrayhoadonsIdName,
+            "arraysanphamsIdName" => $arraysanphamsIdName,
         ]);
-    }
-
-    /* Thêm mới */
-    public function create() {
-        if (isset($_POST["btn-submit"])) { 
-            $data = [
-                'name' => $_POST['name'],          
-                'id_hd' => $_POST['id_hd'],          
-                'id_sp' => $_POST['id_sp'],            
-                'soluongmua' => $_POST['soluongmua'],
-                'dongia' => $_POST['dongia'],
-            ];
-
-            (new chitiethoadon())->insert($data);
-
-            header('Location: /admin/chitiethoadon');
-        }
-
-        $this->renderAdmin("chitiethoadon/create");
-    }
-
-    /* Cập nhật */
-    public function update() {
-
-        if (isset($_POST["btn-submit"])) { 
-            $data = [
-                           
-                'id_hd' => $_POST['id_hd'],          
-                'id_sp' => $_POST['id_sp'],            
-                'soluongmua' => $_POST['soluongmua'],
-                'dongia' => $_POST['dongia'],
-                'name' => $_POST['name'],
-            ];
-
-            $conditions = [
-                ['id', '=', $_GET['id']],
-            ];
-
-            (new chitiethoadon())->update($data, $conditions);
-        }
-
-        $chitiethoadon = (new chitiethoadon())->findOne($_GET["id"]);
-
-        $this->renderAdmin("chitiethoadon/update", ["chitiethoadon" => $chitiethoadon]);
-    }
-
-    /* Xóa */
-    public function delete() {
-        $conditions = [
-            ['id', '=', $_GET['id']],
-        ];
-
-        (new chitiethoadon())->delete($conditions);
-
-        header('Location: /admin/chitiethoadon');
     }
 }

@@ -11,6 +11,6 @@ class chitiethoadon extends Model {
         'id_hd',
         'id_sp',
         'soluongmua',
-        'dongia',
+        'price_sale',
     ];
 }
