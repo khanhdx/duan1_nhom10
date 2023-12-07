@@ -22,7 +22,7 @@
     <!-- Navbar End -->
 
     <!-- content Start -->
-    <?php require_once 'contents/sanpham.php' ?>
+    <?php require_once 'contents/content.php' ?>
     <!-- content End -->
 
     <!-- Vendor Start -->

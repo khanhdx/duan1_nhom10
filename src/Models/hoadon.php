@@ -7,7 +7,7 @@ use Ductong\BaseMvc\Model;
 class hoadon extends Model {
     protected $table = 'hoadon';
     protected $columns = [
-        'name',
+        
         'id_kh',
         'id_sp',
         'tinhtrang',
@@ -16,5 +16,8 @@ class hoadon extends Model {
         'noinhan',
         'nvgh',
         'ghichu',
+        'name',
+        'email',
+        'phone',
     ];
 }
