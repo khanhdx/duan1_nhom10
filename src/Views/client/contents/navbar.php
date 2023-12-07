@@ -51,8 +51,13 @@
                             <a href="" class="nav-item nav-link">Contact</a>
                         </div>
                         <div class="navbar-nav ml-auto py-0">
-                            <a href="../auth/login" class="nav-item nav-link">Login</a>
-                            <a href=" " class="nav-item nav-link">Register</a>
+                        <div class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Active</a>
+                                <div class="dropdown-menu rounded-0 m-0">
+                                    <a href="Login.php" class="dropdown-item">Login</a>
+                                    <a href="/" class="dropdown-item">Logout</a>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </nav>
