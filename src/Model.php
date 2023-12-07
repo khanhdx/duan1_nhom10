@@ -90,6 +90,7 @@ class Model
         }
 
         $stmt->execute();
+        return $this->conn->lastInsertId();
     }
 
     /* 

@@ -22,6 +22,12 @@ $router->addRoute('/', HomeController::class, 'index');
 $router->addRoute('/client/sanpham', SanPhamController::class, 'index');
 $router->addRoute('/client/ChiTietsp', ChiTietspController::class, 'index');
 $router->addRoute('/client/GioHang', GioHangController::class, 'index');
+// Cart.
+$router->addRoute('/addToCart', GioHangController::class, 'addToCart');
+$router->addRoute('/removeFromCart', GioHangController::class, 'removeFromCart');
+$router->addRoute('/incrementQuantity', GioHangController::class, 'incrementQuantity');
+$router->addRoute('/decrementQuantity', GioHangController::class, 'decrementQuantity');
+$router->addRoute('/createOrder', GioHangController::class, 'createOrder');
 
 $router->addRoute('/admin/dashboard', DashboardController::class, 'index');
 

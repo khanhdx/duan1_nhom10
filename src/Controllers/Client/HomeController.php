@@ -1,9 +1,9 @@
 <?php
 
 namespace Ductong\BaseMvc\Controllers\Client;
-use Ductong\BaseMvc\Models\Product;
 
 use Ductong\BaseMvc\Controller;
+use Ductong\BaseMvc\Models\Product;
 
 class HomeController extends Controller
 {
@@ -13,6 +13,6 @@ class HomeController extends Controller
     public function index() {
         $products = (new Product())->all();
 
-        $this->render('client/point', ['products'=> $products]);
+        $this->render('client/point', ["products" => $products ]);
     }
 }
