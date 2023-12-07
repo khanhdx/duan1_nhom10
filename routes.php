@@ -13,6 +13,7 @@ use Ductong\BaseMvc\Controllers\Client\HomeController;
 use Ductong\BaseMvc\Controllers\Client\SanPhamController;
 use Ductong\BaseMvc\Controllers\Client\ChiTietspController;
 use Ductong\BaseMvc\Controllers\Client\GioHangController;
+use Ductong\Controllers\CommentController;
 use Ductong\BaseMvc\Router;
 
 $router = new Router();
@@ -67,3 +68,6 @@ $router->addRoute('/admin/nvgh', nvghController::class, 'index');
 $router->addRoute('/admin/nvgh/create', nvghController::class, 'create');
 $router->addRoute('/admin/nvgh/update', nvghController::class, 'update');
 $router->addRoute('/admin/nvgh/delete', nvghController::class, 'delete');
+
+$router->addRoute('/admin/comments', CommentController::class, 'showComments');
+$router->addRoute('/admin/comments/delete/{id}', CommentController::class, 'deleteComment');
