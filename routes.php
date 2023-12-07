@@ -34,6 +34,8 @@ $router->addRoute('/admin/dashboard', DashboardController::class, 'index');
 $router->addRoute('/login', LoginController::class, 'showForm');
 $router->addRoute('/handleLogin', LoginController::class, 'handleLogin');
 $router->addRoute('/logout', LogoutController::class, 'logout');
+$router->addRoute('/auth/login', LoginController::class, 'showForm');
+$router->addRoute('/auth/handleLogin', LoginController::class, 'handleLogin');
 
 
 $router->addRoute('/admin/users', UserController::class, 'index');

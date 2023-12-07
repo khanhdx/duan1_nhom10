@@ -56,6 +56,14 @@
                         <span class="pcoded-mtext">Quản lý nhân viên GH</span>
                     </a>
                 </li>
+                <li class>
+                    <a href="/admin/comment" class="waves-effect waves-dark">
+                        <span class="pcoded-micon">
+                            <i class="feather icon-layers"></i>
+                        </span>
+                        <span class="pcoded-mtext">Quản lý bình luận</span>
+                    </a>
+                </li>
             </ul>
         </div>
     </div>
