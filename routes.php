@@ -14,6 +14,7 @@ use Ductong\BaseMvc\Controllers\Client\SanPhamController;
 use Ductong\BaseMvc\Controllers\Client\ChiTietspController;
 use Ductong\BaseMvc\Controllers\Client\GioHangController;
 use Ductong\Controllers\CommentController;
+use Ductong\BaseMvc\Controllers\Auth\RegisterController;
 use Ductong\BaseMvc\Router;
 
 $router = new Router();
@@ -39,6 +40,9 @@ $router->addRoute('/auth/login', LoginController::class, 'showForm');
 $router->addRoute('/auth/handleLogin', LoginController::class, 'handleLogin');
 // Thêm tuyến đường cho phương thức logout
 $router->addRoute('/auth/logout', LogoutController::class, 'logout');
+$router->addRoute('/register', RegisterController::class, 'index');
+$router->addRoute('/handleRegister', RegisterController::class, 'handleRegister');
+$router->addRoute('/register', RegisterController::class, 'showForm');
 
 
 
