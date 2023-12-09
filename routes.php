@@ -37,6 +37,9 @@ $router->addRoute('/handleLogin', LoginController::class, 'handleLogin');
 $router->addRoute('/logout', LogoutController::class, 'logout');
 $router->addRoute('/auth/login', LoginController::class, 'showForm');
 $router->addRoute('/auth/handleLogin', LoginController::class, 'handleLogin');
+// Thêm tuyến đường cho phương thức logout
+$router->addRoute('/auth/logout', LogoutController::class, 'logout');
+
 
 
 $router->addRoute('/admin/users', UserController::class, 'index');

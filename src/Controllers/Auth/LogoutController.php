@@ -3,20 +3,22 @@
 namespace Ductong\BaseMvc\Controllers\Auth;
 
 use Ductong\BaseMvc\Controller;
-use Ductong\BaseMvc\Models\User;
 
 class LogoutController extends Controller
 {
-    public function __construct() {
-        check_auth();
-    }
-
-    /*
-        Đây là hàm hiển thị danh sách userr
-    */
     public function logout() {
-        unset($_SESSION['user']);
+        // Kiểm tra đăng nhập
+        if (isset($_SESSION['user'])) {
+            // Hủy bỏ toàn bộ phiên làm việc
+            session_destroy();
 
-        header('Location: /');
+            // Chuyển hướng về trang chủ
+            header('Location: /');
+            exit();
+        } else {
+            // Nếu không đăng nhập, có thể xử lý theo ý của bạn, ví dụ: chuyển hướng về trang đăng nhập
+            header('Location: /auth/login');
+            exit();
+        }
     }
 }
