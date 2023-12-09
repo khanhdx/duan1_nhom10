@@ -308,6 +308,7 @@
             <form action="/handleRegister" method="POST">
                 <input type="text" id="username" class="fadeIn second" name="username" placeholder="Username" required>
                 <input type="text" id="email" class="fadeIn second" name="email" placeholder="Email" required>
+                <input type="text" id="address" class="fadeIn second" name="address" placeholder="Address" required>
                 <input type="password" id="password" class="fadeIn third" name="password" placeholder="Password" required minlength="6">
 
                 <!-- Thêm các trường cần thiết cho form đăng ký của bạn -->

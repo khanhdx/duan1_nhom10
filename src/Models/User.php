@@ -3,8 +3,10 @@ namespace Ductong\BaseMvc\Models;
 
 use Ductong\BaseMvc\Model;
 
-session_start();
-class User extends Model
+// Kiểm tra xem session đã được bắt đầu hay chưa
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}class User extends Model
 {
     protected $table = 'users';
     protected $columns = ['name', 'email', 'address', 'password', 'is_admin'];
@@ -101,31 +103,30 @@ class User extends Model
     }
 
     // Phương thức lưu người dùng vào cơ sở dữ liệu
+// User.php
+// Phương thức save() trong User.php
     public function save()
     {
-        $sql = "
-            INSERT INTO {$this->table} (name, email, address, password, is_admin)
-            VALUES (:name, :email, :address, :password, :is_admin)
-        ";
+        $sql = "INSERT INTO {$this->table} (name, email, address, password) VALUES (:name, :email, :address, :password)";
 
         $stmt = $this->conn->prepare($sql);
         $stmt->bindValue(':name', $this->name);
         $stmt->bindValue(':email', $this->email);
         $stmt->bindValue(':address', $this->address);
         $stmt->bindValue(':password', $this->password);
-        $stmt->bindValue(':is_admin', $this->is_admin);
-        
+
+        // Log câu lệnh SQL
+        error_log('SQL: ' . $sql);
 
         try {
             $stmt->execute();
         } catch (\PDOException $e) {
-            // Xử lý lỗi khi không thể thêm vào cơ sở dữ liệu
-            // Ví dụ: log lỗi, hiển thị thông báo cho người dùng
-            echo "Lỗi: " . $e->getMessage();
-            // Ghi log lỗi hoặc xử lý theo cách khác nếu cần thiết
-            return false; // Trả về false để biểu thị rằng quá trình lưu thất bại
+            // Log lỗi nếu có
+            error_log("Lỗi: " . $e->getMessage());
+            return false;
         }
 
-        return true; // Trả về true để biểu thị rằng quá trình lưu thành công
+        return true;
     }
+
 }
