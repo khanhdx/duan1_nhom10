@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Dec 02, 2023 at 03:15 PM
+-- Generation Time: Dec 10, 2023 at 07:20 PM
 -- Server version: 8.0.30
 -- PHP Version: 8.1.10
 
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `duan_nhom10`
+-- Database: `wd_18342`
 --
 
 -- --------------------------------------------------------
@@ -29,7 +29,7 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `categories` (
   `id` int NOT NULL,
-  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL
+  `name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
@@ -60,23 +60,32 @@ CREATE TABLE `chitiethoadon` (
 --
 
 INSERT INTO `chitiethoadon` (`id`, `id_hd`, `id_sp`, `soluongmua`, `tonggia`) VALUES
-(3, 7, 3, 2, 2222),
-(4, 8, 2, 3, 12000);
+(15, 29, 8, 2, 222),
+(16, 30, 1, 3, 123),
+(17, 31, 8, 1, 111),
+(18, 31, 1, 1, 123);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `comment`
+-- Table structure for table `comments`
 --
 
-CREATE TABLE `comment` (
+CREATE TABLE `comments` (
   `id` int NOT NULL,
-  `desc` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `id_users` int NOT NULL,
-  `id_pro` int NOT NULL,
-  `datecomment` date NOT NULL,
-  `rely_to_comment_id` int DEFAULT NULL
+  `comment_text` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `user_id` int NOT NULL,
+  `product_id` int NOT NULL,
+  `date_comment` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `comments`
+--
+
+INSERT INTO `comments` (`id`, `comment_text`, `user_id`, `product_id`, `date_comment`) VALUES
+(1, 'quanquan', 1, 1, '2023-11-30'),
+(6, 'qqweqwe', 2, 1, '2023-11-30');
 
 -- --------------------------------------------------------
 
@@ -91,19 +100,21 @@ CREATE TABLE `hoadon` (
   `tinhtrang` int NOT NULL,
   `ngay_lap` date NOT NULL,
   `tonggia` int NOT NULL,
-  `noinhan` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `noinhan` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `nvgh` int NOT NULL,
-  `ghichu` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL
+  `ghichu` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `soluongmua` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `hoadon`
 --
 
-INSERT INTO `hoadon` (`id`, `id_kh`, `id_sp`, `tinhtrang`, `ngay_lap`, `tonggia`, `noinhan`, `nvgh`, `ghichu`, `name`) VALUES
-(7, 3, 3, 3, '2023-12-01', 1111, 'thanhoai123', 3, 'qqqq', 'wwww'),
-(8, 2, 2, 3, '2023-12-03', 4000, 'ddd', 1, 'áasasasasasaaas', 'hoadon99');
+INSERT INTO `hoadon` (`id`, `id_kh`, `id_sp`, `tinhtrang`, `ngay_lap`, `tonggia`, `noinhan`, `nvgh`, `ghichu`, `name`, `soluongmua`) VALUES
+(29, 3, 8, 1, '2023-12-11', 222, 'ddd', 1, 'dddd', 'ddd', 2),
+(30, 2, 1, 1, '2023-12-10', 369, 'qqqq', 2, 'qqqq', 'qqqq', 3),
+(31, 2, 1, 1, '2023-12-10', 234, '111', 2, '111', '111', 1);
 
 -- --------------------------------------------------------
 
@@ -113,7 +124,7 @@ INSERT INTO `hoadon` (`id`, `id_kh`, `id_sp`, `tinhtrang`, `ngay_lap`, `tonggia`
 
 CREATE TABLE `nvgh` (
   `id` int NOT NULL,
-  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `sdt_1` int NOT NULL,
   `sdt_2` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -123,10 +134,9 @@ CREATE TABLE `nvgh` (
 --
 
 INSERT INTO `nvgh` (`id`, `name`, `sdt_1`, `sdt_2`) VALUES
-(1, 'khanhdx', 123456789, 12345678),
+(1, 'khanh', 123456789, 12345678),
 (2, 'vinhng', 123456, 98765432),
-(3, 'minhquan', 345678, 54326789),
-(5, 'huyn', 123456789, 123456789);
+(3, 'minhquan', 345678, 54326789);
 
 -- --------------------------------------------------------
 
@@ -137,11 +147,11 @@ INSERT INTO `nvgh` (`id`, `name`, `sdt_1`, `sdt_2`) VALUES
 CREATE TABLE `products` (
   `id` int NOT NULL,
   `category_id` int NOT NULL,
-  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `price` int NOT NULL,
   `tonggia` int DEFAULT NULL,
-  `img` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `description` text COLLATE utf8mb4_unicode_ci,
+  `img` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `description` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci,
   `is_active` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
@@ -150,10 +160,9 @@ CREATE TABLE `products` (
 --
 
 INSERT INTO `products` (`id`, `category_id`, `name`, `price`, `tonggia`, `img`, `description`, `is_active`) VALUES
-(1, 1, 'iphone 14 promax ', 2300, 1900, '/uploads/ip 14 promax vang.jpg', 'Màn hình Dynamic Island - Sự biến mất của màn hình tai thỏ thay thế bằng thiết kế viên thuốc, OLED 6,7 inch, hỗ trợ always-on display\r\nCấu hình iPhone 14 Pro Max mạnh mẽ, hiệu năng cực khủng từ chipset A16 Bionic\r\nLàm chủ công nghệ nhiếp ảnh - Camera sau 48MP, cảm biến TOF sống động\r\nPin liền lithium-ion kết hợp cùng công nghệ sạc nhanh cải tiến\r\niPhone 14 Pro Max sở hữu thiết kế màn hình Dynamic Island ấn tượng cùng màn hình OLED 6,7 inch hỗ trợ always-on display và hiệu năng vượt trội với chip A16 Bionic. Bên cạnh đó máy còn sở hữu nhiều nâng cấp về camera với cụm camera sau 48MP, camera trước 12MP dùng bộ nhớ RAM 6GB đa nhiệm vượt trội. Cùng phân tích chi tiết thông số siêu phẩm này ngay sau đây.', 1),
-(2, 1, 'iPhone 13 128GB | Chính hãng VN/A', 2000, 1900, '/uploads/ip13.jpg', 'Hiệu năng vượt trội - Chip Apple A15 Bionic mạnh mẽ, hỗ trợ mạng 5G tốc độ cao\r\nKhông gian hiển thị sống động - Màn hình 6.1\" Super Retina XDR độ sáng cao, sắc nét\r\nTrải nghiệm điện ảnh đỉnh cao - Camera kép 12MP, hỗ trợ ổn định hình ảnh quang học\r\nTối ưu điện năng - Sạc nhanh 20 W, đầy 50% pin trong khoảng 30 phút', 1),
-(3, 1, 'iPhone XS Max 64GB', 2000, 1700, '/uploads/ip x vang.jpg', 'meoemo', 1),
-(4, 3, 'vivo V29E 8GB 256GB', 1200, 900, '/uploads/vivo-v29e_3__1_2.webp', 'Thông tin sản phẩm\r\n\r\nMới, đầy đủ phụ kiện từ nhà sản xuất\r\nVivo V29E\r\nSách hướng dẫn\r\nDây USB\r\nCủ sạc\r\nQue lấy SIM\r\nỐp lưng\r\nMiếng dán màn hình\r\nThẻ bảo hành\r\nBảo hành 12 tháng tại trung tâm bảo hành Chính hãng. 1 đổi 1 trong 30 ngày nếu có lỗi phần cứng từ nhà sản xuất. (xem chi tiết)\r\nGiá sản phẩm đã bao gồm VAT', 1);
+(1, 1, 'iPhone 15 Pro Max 256GB TRANG TITAN | Chính hãng VN/A', 123, 123, '/uploads/iphone15-pro-max-titan-trang.webp', 'Màn hình Dynamic Island - Sự biến mất của màn hình tai thỏ thay thế bằng thiết kế viên thuốc, OLED 6,7 inch, hỗ trợ always-on display\r\nCấu hình iPhone 14 Pro Max mạnh mẽ, hiệu năng cực khủng từ chipset A16 Bionic\r\nLàm chủ công nghệ nhiếp ảnh - Camera sau 48MP, cảm biến TOF sống động\r\nPin liền lithium-ion kết hợp cùng công nghệ sạc nhanh cải tiến\r\niPhone 14 Pro Max sở hữu thiết kế màn hình Dynamic Island ấn tượng cùng màn hình OLED 6,7 inch hỗ trợ always-on display và hiệu năng vượt trội với chip A16 Bionic. Bên cạnh đó máy còn sở hữu nhiều nâng cấp về camera với cụm camera sau 48MP, camera trước 12MP dùng bộ nhớ RAM 6GB đa nhiệm vượt trội. Cùng phân tích chi tiết thông số siêu phẩm này ngay sau đây.', 1),
+(7, 1, 'iPhone 15 Pro Max 256GB xanh titan | Chính hãng VN/A', 123, 123, '/uploads/iphone15-pro-max-titan-xanh.webp', 'iPhone 15 Pro Max thiết kế mới với chất liệu titan chuẩn hàng không vũ trụ bền bỉ, trọng lượng nhẹ, đồng thời trang bị nút Action và cổng sạc USB-C tiêu chuẩn giúp nâng cao tốc độ sạc. Khả năng chụp ảnh đỉnh cao của iPhone 15 bản Pro Max đến từ camera chính 48MP, camera UltraWide 12MP và camera telephoto có khả năng zoom quang học đến 5x. Bên cạnh đó, iPhone 15 ProMax sử dụng chip A17 Pro mới mạnh mẽ. Xem thêm chi tiết những điểm nổi bật của sản phẩm qua thông tin sau!', 1),
+(8, 1, 'iPhone 15 Pro Max 256GB den titan | Chính hãng VN/A', 111, 111, '/uploads/iphone15-pro-max-titan-den.webp', 'iPhone 15 Pro Max thiết kế mới với chất liệu titan chuẩn hàng không vũ trụ bền bỉ, trọng lượng nhẹ, đồng thời trang bị nút Action và cổng sạc USB-C tiêu chuẩn giúp nâng cao tốc độ sạc. Khả năng chụp ảnh đỉnh cao của iPhone 15 bản Pro Max đến từ camera chính 48MP, camera UltraWide 12MP và camera telephoto có khả năng zoom quang học đến 5x. Bên cạnh đó, iPhone 15 ProMax sử dụng chip A17 Pro mới mạnh mẽ. Xem thêm chi tiết những điểm nổi bật của sản phẩm qua thông tin sau!', 1);
 
 -- --------------------------------------------------------
 
@@ -163,7 +172,7 @@ INSERT INTO `products` (`id`, `category_id`, `name`, `price`, `tonggia`, `img`, 
 
 CREATE TABLE `tinhtrang` (
   `id` int NOT NULL,
-  `tinhtrang` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL
+  `tinhtrang` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
@@ -183,20 +192,21 @@ INSERT INTO `tinhtrang` (`id`, `tinhtrang`) VALUES
 
 CREATE TABLE `users` (
   `id` int NOT NULL,
-  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `password` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `address` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL
+  `name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `email` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `password` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `address` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `is_admin` tinyint(1) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `name`, `email`, `password`, `address`) VALUES
-(1, 'khanh', 'khanh@gmail.com', '123456', 'hanoi'),
-(2, 'vinh', 'vinh@gmail.com', '123456', 'hanoi'),
-(3, 'quan', 'quan@gmailcom', '123456', 'hanoi');
+INSERT INTO `users` (`id`, `name`, `email`, `password`, `address`, `is_admin`) VALUES
+(1, 'khanh', 'khanh@gmail.com', '123456', 'hanoi', 1),
+(2, 'vinh', 'vinh@gmail.com', '123456', 'hanoi', 0),
+(3, 'quan', 'quan@gmail.com', '123456', 'hanoi', 0);
 
 --
 -- Indexes for dumped tables
@@ -217,12 +227,12 @@ ALTER TABLE `chitiethoadon`
   ADD KEY `sanpham` (`id_sp`);
 
 --
--- Indexes for table `comment`
+-- Indexes for table `comments`
 --
-ALTER TABLE `comment`
+ALTER TABLE `comments`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `user` (`id_users`),
-  ADD KEY `id_pro` (`id_pro`);
+  ADD KEY `user` (`user_id`),
+  ADD KEY `id_pro` (`product_id`);
 
 --
 -- Indexes for table `hoadon`
@@ -232,7 +242,7 @@ ALTER TABLE `hoadon`
   ADD KEY `tinhtrang_1` (`tinhtrang`),
   ADD KEY `nvgh_1` (`nvgh`),
   ADD KEY `user_1` (`id_kh`),
-  ADD KEY `products_1` (`id_sp`);
+  ADD KEY `lk_pro_1` (`id_sp`);
 
 --
 -- Indexes for table `nvgh`
@@ -273,31 +283,31 @@ ALTER TABLE `categories`
 -- AUTO_INCREMENT for table `chitiethoadon`
 --
 ALTER TABLE `chitiethoadon`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
--- AUTO_INCREMENT for table `comment`
+-- AUTO_INCREMENT for table `comments`
 --
-ALTER TABLE `comment`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT;
+ALTER TABLE `comments`
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `hoadon`
 --
 ALTER TABLE `hoadon`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 
 --
 -- AUTO_INCREMENT for table `nvgh`
 --
 ALTER TABLE `nvgh`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `tinhtrang`
@@ -323,18 +333,18 @@ ALTER TABLE `chitiethoadon`
   ADD CONSTRAINT `sanpham` FOREIGN KEY (`id_sp`) REFERENCES `products` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT;
 
 --
--- Constraints for table `comment`
+-- Constraints for table `comments`
 --
-ALTER TABLE `comment`
-  ADD CONSTRAINT `comment_ibfk_1` FOREIGN KEY (`id_pro`) REFERENCES `products` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT,
-  ADD CONSTRAINT `user` FOREIGN KEY (`id_users`) REFERENCES `users` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT;
+ALTER TABLE `comments`
+  ADD CONSTRAINT `comments_ibfk_1` FOREIGN KEY (`product_id`) REFERENCES `products` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT,
+  ADD CONSTRAINT `user` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT;
 
 --
 -- Constraints for table `hoadon`
 --
 ALTER TABLE `hoadon`
+  ADD CONSTRAINT `lk_pro_1` FOREIGN KEY (`id_sp`) REFERENCES `products` (`id`),
   ADD CONSTRAINT `nvgh_1` FOREIGN KEY (`nvgh`) REFERENCES `nvgh` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT,
-  ADD CONSTRAINT `products_1` FOREIGN KEY (`id_sp`) REFERENCES `products` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT,
   ADD CONSTRAINT `tinhtrang_1` FOREIGN KEY (`tinhtrang`) REFERENCES `tinhtrang` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT,
   ADD CONSTRAINT `user_1` FOREIGN KEY (`id_kh`) REFERENCES `users` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT;
 

@@ -109,13 +109,8 @@
                         <label for="name">Name</label>
                         <input type="text" required name="name" class="form-control">
 
-                        
-
                         <label for="ghichu">Ghi chú</label>
                         <input type="text" required name="ghichu" class="form-control">
-
-                        <label for="phone">Phone</label>
-                        <input type="tel" required name="phone" class="form-control">
 
                         <label for="noinhan">Address</label>
                         <input type="text" required name="noinhan" class="form-control">
