@@ -287,9 +287,11 @@
         #icon {
             width: 30%;
         }
+        .error {
+            color: red;
+        }
     </style>
 </head>
-
 <body>
 
     <div class="wrapper fadeInDown">
@@ -303,7 +305,7 @@
 
             <!-- Register Form -->
             <?php if (isset($error)) : ?>
-                <p><?= $error ?></p>
+                <p class="error"><?= $error ?></p>
             <?php endif; ?>
             <form action="/handleRegister" method="POST">
                 <input type="text" id="username" class="fadeIn second" name="username" placeholder="Username" required>

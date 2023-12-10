@@ -12,52 +12,38 @@ class RegisterController extends Controller
         $this->render('auth/register');
     }
 
-// RegisterController.php
-public function handleRegister()
-{
-    $email = $_POST['email'];
-    $password = $_POST['password'];
-    $address = $_POST['address'];
-    $name = $_POST['name'];
-    // Kiểm tra xem email đã tồn tại chưa
-    $userModel = new User();
-    if ($userModel->getUserByEmail($email)) {
-        // Email đã tồn tại
-        $error = "Email đã tồn tại. Vui lòng chọn email khác.";
-        $this->render('auth/register', compact('error'));
-        exit(); // Đảm bảo ngăn chặn việc thực thi mã tiếp theo
+    public function handleRegister()
+    {
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $username = $_POST['username'];
+            $email = $_POST['email'];
+            $address = $_POST['address'];
+            $password = $_POST['password'];
+
+            // Kiểm tra xem email đã tồn tại hay chưa
+            $userModel = new User;
+            if ($userModel->emailExists($email)) {
+                $error = 'Email đã tồn tại. Vui lòng chọn một email khác.';
+                $this->render('auth/register', ['error' => $error]);
+                exit();
+            }
+
+            // Thêm bất kỳ kiểm tra hợp lệ nào cần thiết cho dữ liệu đầu vào
+
+            $data = [
+                'name' => $username,
+                'email' => $email,
+                'address' => $address,
+                'password' => $password,
+            ];
+
+            $userModel->insert($data);
+
+            // Chuyển hướng đến trang đăng nhập sau khi đăng ký thành công
+            header('Location: /login');
+            exit();
+        }
+
+        $this->render('auth/register');
     }
-
-    // Thực hiện các kiểm tra validate cần thiết
-
-    // Tạo mới người dùng
-    $user = new User();
-    $user->setEmail($email);
-    $user->setPassword($password);
-    $user->setname($name);
-    $user->setaddress($address);
-
-
-    // Log dữ liệu
-    error_log('Email: ' . $email);
-    error_log('Password: ' . $password);
-    error_log('Name: ' . $name);
-    error_log('Address: ' . $address);
-    // Lưu người dùng vào cơ sở dữ liệu
-    $result = $user->save();
-
-    // Kiểm tra kết quả lưu
-    if (!$result) {
-        error_log('Lưu người dùng thất bại');
-        // Xử lý lỗi nếu cần
-    }
-
-    // Lưu thông báo vào session
-    $_SESSION['success_message'] = 'Đăng ký thành công!';
-
-    // Chuyển hướng về trang đăng nhập
-    header('Location: /auth/login');
-    exit(); // Đảm bảo ngăn chặn việc thực thi mã tiếp theo
-}
-
 }

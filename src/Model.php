@@ -66,31 +66,22 @@ class Model
 
         return $stmt->fetchAll();
     }
-
     public function insert($data)
     {
-        $sql = "INSERT INTO {$this->table}";
+        $columns = implode(', ', array_keys($data));
+        $values = ':' . implode(', :', array_keys($data));
 
-        $columns = implode(", ", $this->columns);
-        $sql .= "({$columns}) VALUES ";
-
-        $values = [];
-        foreach ($this->columns as $column) {
-            $values[] = ":{$column}";
-        }
-        $values = implode(", ", $values);
-        $sql .= "({$values})";
+        $sql = "INSERT INTO {$this->table} ({$columns}) VALUES ({$values})";
 
         $stmt = $this->conn->prepare($sql);
 
-        foreach ($data as $key => &$value) {
-            if (in_array($key, $this->columns)) {
-                $stmt->bindParam(":{$key}", $value);
-            }
+        // Bind các giá trị từ mảng $data
+        foreach ($data as $key => $value) {
+            $stmt->bindValue(':' . $key, $value);
         }
 
+        // Thực hiện truy vấn
         $stmt->execute();
-        return $this->conn->lastInsertId();
     }
 
     /* 
