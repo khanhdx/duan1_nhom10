@@ -57,7 +57,7 @@
                                                         <td><?= $arrayhoadonsIdName[$chitiethoadon['id_hd']] ?></td>
                                                         <td><?= $arraysanphamsIdName[$chitiethoadon['id_sp']] ?></td>
                                                         <td><?= $chitiethoadon['soluongmua'] ?></td>
-                                                        <td><?= $chitiethoadon['price_sale'] ?></td>
+                                                        <td><?= $chitiethoadon['tonggia'] ?></td>
 
 
                                                     </tr>

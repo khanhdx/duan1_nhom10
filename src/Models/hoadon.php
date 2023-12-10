@@ -17,7 +17,6 @@ class hoadon extends Model {
         'nvgh',
         'ghichu',
         'name',
-        'email',
-        'phone',
+        'soluongmua',
     ];
 }

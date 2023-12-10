@@ -52,14 +52,14 @@ CREATE TABLE `chitiethoadon` (
   `id_hd` int NOT NULL,
   `id_sp` int NOT NULL,
   `soluongmua` int NOT NULL,
-  `price_sale` int NOT NULL
+  `tonggia` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `chitiethoadon`
 --
 
-INSERT INTO `chitiethoadon` (`id`, `id_hd`, `id_sp`, `soluongmua`, `price_sale`) VALUES
+INSERT INTO `chitiethoadon` (`id`, `id_hd`, `id_sp`, `soluongmua`, `tonggia`) VALUES
 (3, 7, 3, 2, 2222),
 (4, 8, 2, 3, 12000);
 
@@ -139,7 +139,7 @@ CREATE TABLE `products` (
   `category_id` int NOT NULL,
   `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `price` int NOT NULL,
-  `price_sale` int DEFAULT NULL,
+  `tonggia` int DEFAULT NULL,
   `img` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `description` text COLLATE utf8mb4_unicode_ci,
   `is_active` tinyint(1) NOT NULL
@@ -149,7 +149,7 @@ CREATE TABLE `products` (
 -- Dumping data for table `products`
 --
 
-INSERT INTO `products` (`id`, `category_id`, `name`, `price`, `price_sale`, `img`, `description`, `is_active`) VALUES
+INSERT INTO `products` (`id`, `category_id`, `name`, `price`, `tonggia`, `img`, `description`, `is_active`) VALUES
 (1, 1, 'iphone 14 promax ', 2300, 1900, '/uploads/ip 14 promax vang.jpg', 'Màn hình Dynamic Island - Sự biến mất của màn hình tai thỏ thay thế bằng thiết kế viên thuốc, OLED 6,7 inch, hỗ trợ always-on display\r\nCấu hình iPhone 14 Pro Max mạnh mẽ, hiệu năng cực khủng từ chipset A16 Bionic\r\nLàm chủ công nghệ nhiếp ảnh - Camera sau 48MP, cảm biến TOF sống động\r\nPin liền lithium-ion kết hợp cùng công nghệ sạc nhanh cải tiến\r\niPhone 14 Pro Max sở hữu thiết kế màn hình Dynamic Island ấn tượng cùng màn hình OLED 6,7 inch hỗ trợ always-on display và hiệu năng vượt trội với chip A16 Bionic. Bên cạnh đó máy còn sở hữu nhiều nâng cấp về camera với cụm camera sau 48MP, camera trước 12MP dùng bộ nhớ RAM 6GB đa nhiệm vượt trội. Cùng phân tích chi tiết thông số siêu phẩm này ngay sau đây.', 1),
 (2, 1, 'iPhone 13 128GB | Chính hãng VN/A', 2000, 1900, '/uploads/ip13.jpg', 'Hiệu năng vượt trội - Chip Apple A15 Bionic mạnh mẽ, hỗ trợ mạng 5G tốc độ cao\r\nKhông gian hiển thị sống động - Màn hình 6.1\" Super Retina XDR độ sáng cao, sắc nét\r\nTrải nghiệm điện ảnh đỉnh cao - Camera kép 12MP, hỗ trợ ổn định hình ảnh quang học\r\nTối ưu điện năng - Sạc nhanh 20 W, đầy 50% pin trong khoảng 30 phút', 1),
 (3, 1, 'iPhone XS Max 64GB', 2000, 1700, '/uploads/ip x vang.jpg', 'meoemo', 1),

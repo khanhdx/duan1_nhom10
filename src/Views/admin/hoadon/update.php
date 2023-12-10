@@ -61,6 +61,9 @@
                                             <?php endforeach; ?>
                                         </select>
 
+                                        <label for="soluongmua">Số lượng</label>
+                                        <input type="number" name="soluongmua" id="soluongmua" class="form-control" value="<?= $hoadons['soluongmua'] ?>">
+
                                         <label for="tinhtrang">Tình trạng</label>
                                         <select name="tinhtrang" id="tinhtrang" class="form-control">
                                             <?php foreach ($tinhtrangs as $tinhtrang) : ?>

@@ -61,7 +61,7 @@
                                                         </td>
                                                         <td><?= $product['name'] ?></td>
                                                         <td><?= $product['price'] ?></td>
-                                                        <td><?= $product['price_sale'] ?></td>
+                                                        <td><?= $product['tonggia'] ?></td>
                                                         <td><?= $arrayCategoryIdName[$product['category_id']] ?></td>
                                                         <td><?= $product['is_active'] ? 'Yes' : 'No' ?></td>
                                                         <td>

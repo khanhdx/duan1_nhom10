@@ -10,7 +10,7 @@ class Product extends Model {
         'category_id',
         'name',
         'price',
-        'price_sale',
+        'tonggia',
         'img',
         'description',
         'is_active',

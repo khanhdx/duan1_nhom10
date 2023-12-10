@@ -4,6 +4,7 @@
             <table class="table table-bordered text-center mb-0">
                 <thead class="bg-secondary text-dark">
                     <tr>
+                        <th>IMG</th>
                         <th>Products</th>
                         <th>Price</th>
                         <th>Quantity</th>
@@ -13,11 +14,30 @@
                 <tbody class="align-middle">
 
                 <tbody>
+                    <?php 
+                    use Ductong\BaseMvc\Models\Product; 
+                    $products = (new Product())->all();
+                    ?>
                     
                     <?php foreach ($_SESSION['client/GioHang'] as $idSP => $value) : ?>
                         <tr>
-                            <td><?= $idSP ?></td>
-                            <td>$<?= $value['price_sale'] ?></td>
+                            <td><img style="width: 70px;" src="<?php foreach ($products as $product)
+                            {
+                                if($idSP==$product['id']){
+                                    echo $product['img'];
+                                
+                                }
+                            }
+                            ?>" alt=""></td>
+                            <td><?php foreach ($products as $product)
+                            {
+                                if($idSP==$product['id']){
+                                    echo $product['name'];
+                                
+                                }
+                            }
+                            ?></td>
+                            <td>$<?= $value['tonggia'] ?></td>
                             <td>
                                 <a href="/decrementQuantity?id=<?= $idSP ?>" class="btn btn-sm btn-primary btn-plus">-</a>
                                 <button type="button" class="btn btn-sm btn-primary btn-plus"><?= $value['soluongmua'] ?></button>
@@ -74,7 +94,7 @@
                             <?php
                             $sum = 0;
                             foreach ($_SESSION['client/GioHang'] as $item) {
-                                $sum += $item['price_sale'] * $item['soluongmua'];
+                                $sum += $item['tonggia'] * $item['soluongmua'];
                             }
 
                             echo number_format($sum) . "<sup>$</sup>";
@@ -82,19 +102,26 @@
                         </li>
                     </ul>
                     <form action="/createOrder" method="POST">
+                        <?php foreach ($_SESSION['client/GioHang'] as $idSP => $value) : ?>
+                            <input type="text" name="id_sp" value="<?= $idSP ?>" hidden>
+                        <?php endforeach; ?>
+
                         <label for="name">Name</label>
                         <input type="text" required name="name" class="form-control">
 
-                        <label for="email">Email</label>
-                        <input type="email" required name="email" class="form-control">
+                        
+
+                        <label for="ghichu">Ghi chú</label>
+                        <input type="text" required name="ghichu" class="form-control">
 
                         <label for="phone">Phone</label>
                         <input type="tel" required name="phone" class="form-control">
 
-                        <label for="address">Address</label>
-                        <input type="text" required name="address" class="form-control">
+                        <label for="noinhan">Address</label>
+                        <input type="text" required name="noinhan" class="form-control">
 
                         <button type="submit" class="btn btn-primary mt-3">Đặt hàng</button>
+
                     </form>
                 </div>
             </div>

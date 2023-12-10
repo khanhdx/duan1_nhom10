@@ -60,8 +60,8 @@
 
                                         </select>
 
-                                        <label for="soluong">Số Lượng</label>
-                                        <input type="number" name="soluong" id="soluong" class="form-control">
+                                        <label for="soluongmua">Số Lượng</label>
+                                        <input type="number" name="soluongmua" id="soluongmua" class="form-control">
 
                                         <label for="tinhtrang">Tình Trạng</label>
                                         <select name="tinhtrang" id="tinhtrang" class="form-control">

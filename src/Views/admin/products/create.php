@@ -52,8 +52,8 @@
                                         <label for="price">Price</label>
                                         <input type="number" name="price" id="price" class="form-control">
 
-                                        <label for="price_sale">Price sale</label>
-                                        <input type="number" name="price_sale" id="price_sale" class="form-control">
+                                        <label for="tonggia">Price sale</label>
+                                        <input type="number" name="tonggia" id="tonggia" class="form-control">
 
                                         <label for="is_active">Active</label>
                                         <select name="is_active" id="is_active" class="form-control">
