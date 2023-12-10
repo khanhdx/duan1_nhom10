@@ -87,12 +87,17 @@ class GioHangController extends Controller
                 'ghichu'=> $_POST['ghichu'],
                 'name' => $_POST['name'],
                 'soluongmua'=> $soluongmua,
-                'phone' => $_POST['phone'],
-                
                 
             ];
 
-            $orderID = (new hoadon)->insert($data);
+            (new hoadon)->insert($data);
+            $hoadons = (new hoadon) ->all();
+            $orderID=0;
+            foreach($hoadons as $hoadon){
+                if($hoadon['id']>$orderID){
+                    $orderID=$hoadon['id'];
+                }
+            }
 
             // Tạo Order detail
         

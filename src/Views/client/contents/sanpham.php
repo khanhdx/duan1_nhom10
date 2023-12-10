@@ -20,23 +20,23 @@
                     </div>
                     <div class="card-footer d-flex justify-content-between bg-light border">
                         <a href="/client/ChiTietsp?id=<?= $product['id'] ?>" class="btn btn-sm text-dark p-0"><i class="fas fa-eye text-primary mr-1"></i>View Detail</a>
-                        
+
                         <form action="/addToCart" method="POST">
-                        <input type="hidden" name="tonggia" value="<?= $product['tonggia'] ?>">
-                        <input type="hidden" name="soluongmua" value="1">
-                        <input type="hidden" name="id" value="<?= $product['id'] ?>">
-                        <button type="submit" class="btn btn-sm text-dark p-0"><i class="fas fa-shopping-cart text-primary mr-1"></i>Add To Cart</button>
-                    </form>
+                            <input type="hidden" name="tonggia" value="<?= $product['tonggia'] ?>">
+                            <input type="hidden" name="soluongmua" value="1">
+                            <input type="hidden" name="id" value="<?= $product['id'] ?>">
+                            <button type="submit" class="btn btn-sm text-dark p-0"><i class="fas fa-shopping-cart text-primary mr-1"></i>Add To Cart</button>
+                        </form>
                     </div>
-                    
+
                 <?php endforeach; ?>
             </div>
         </div>
-        
-        
+
+
         <div class="col-lg-3 col-md-6 col-sm-12 pb-1">
             <div class="card product-item border-0 mb-4">
-            <?php foreach ($products as $product) : ?>
+                <?php foreach ($products as $product) : ?>
                     <div class="card-header product-img position-relative overflow-hidden bg-transparent border p-0">
                         <img class="img-fluid w-100" src="<?= $product['img'] ?>" alt="">
                     </div>
@@ -50,22 +50,22 @@
                     </div>
                     <div class="card-footer d-flex justify-content-between bg-light border">
                         <a href="/client/ChiTietsp?id=<?= $product['id'] ?>" class="btn btn-sm text-dark p-0"><i class="fas fa-eye text-primary mr-1"></i>View Detail</a>
-                        
+
                         <form action="/addToCart" method="POST">
-                        <input type="hidden" name="tonggia" value="<?= $product['tonggia'] ?>">
-                        <input type="hidden" name="soluongmua" value="1">
-                        <input type="hidden" name="id" value="<?= $product['id'] ?>">
-                        <button type="submit" class="btn btn-sm text-dark p-0"><i class="fas fa-shopping-cart text-primary mr-1"></i>Add To Cart</button>
-                    </form>
+                            <input type="hidden" name="tonggia" value="<?= $product['tonggia'] ?>">
+                            <input type="hidden" name="soluongmua" value="1">
+                            <input type="hidden" name="id" value="<?= $product['id'] ?>">
+                            <button type="submit" class="btn btn-sm text-dark p-0"><i class="fas fa-shopping-cart text-primary mr-1"></i>Add To Cart</button>
+                        </form>
                     </div>
-                    
+
                 <?php endforeach; ?>
             </div>
         </div>
 
         <div class="col-lg-3 col-md-6 col-sm-12 pb-1">
             <div class="card product-item border-0 mb-4">
-            <?php foreach ($products as $product) : ?>
+                <?php foreach ($products as $product) : ?>
                     <div class="card-header product-img position-relative overflow-hidden bg-transparent border p-0">
                         <img class="img-fluid w-100" src="<?= $product['img'] ?>" alt="">
                     </div>
@@ -79,22 +79,22 @@
                     </div>
                     <div class="card-footer d-flex justify-content-between bg-light border">
                         <a href="/client/ChiTietsp?id=<?= $product['id'] ?>" class="btn btn-sm text-dark p-0"><i class="fas fa-eye text-primary mr-1"></i>View Detail</a>
-                        
+
                         <form action="/addToCart" method="POST">
-                        <input type="hidden" name="tonggia" value="<?= $product['tonggia'] ?>">
-                        <input type="hidden" name="soluongmua" value="1">
-                        <input type="hidden" name="id" value="<?= $product['id'] ?>">
-                        <button type="submit" class="btn btn-sm text-dark p-0"><i class="fas fa-shopping-cart text-primary mr-1"></i>Add To Cart</button>
-                    </form>
+                            <input type="hidden" name="tonggia" value="<?= $product['tonggia'] ?>">
+                            <input type="hidden" name="soluongmua" value="1">
+                            <input type="hidden" name="id" value="<?= $product['id'] ?>">
+                            <button type="submit" class="btn btn-sm text-dark p-0"><i class="fas fa-shopping-cart text-primary mr-1"></i>Add To Cart</button>
+                        </form>
                     </div>
-                    
+
                 <?php endforeach; ?>
             </div>
         </div>
-        
+
         <div class="col-lg-3 col-md-6 col-sm-12 pb-1">
             <div class="card product-item border-0 mb-4">
-            <?php foreach ($products as $product) : ?>
+                <?php foreach ($products as $product) : ?>
                     <div class="card-header product-img position-relative overflow-hidden bg-transparent border p-0">
                         <img class="img-fluid w-100" src="<?= $product['img'] ?>" alt="">
                     </div>
@@ -108,15 +108,15 @@
                     </div>
                     <div class="card-footer d-flex justify-content-between bg-light border">
                         <a href="/client/ChiTietsp?id=<?= $product['id'] ?>" class="btn btn-sm text-dark p-0"><i class="fas fa-eye text-primary mr-1"></i>View Detail</a>
-                        
+
                         <form action="/addToCart" method="POST">
-                        <input type="hidden" name="tonggia" value="<?= $product['tonggia'] ?>">
-                        <input type="hidden" name="soluongmua" value="1">
-                        <input type="hidden" name="id" value="<?= $product['id'] ?>">
-                        <button type="submit" class="btn btn-sm text-dark p-0"><i class="fas fa-shopping-cart text-primary mr-1"></i>Add To Cart</button>
-                    </form>
+                            <input type="hidden" name="tonggia" value="<?= $product['tonggia'] ?>">
+                            <input type="hidden" name="soluongmua" value="1">
+                            <input type="hidden" name="id" value="<?= $product['id'] ?>">
+                            <button type="submit" class="btn btn-sm text-dark p-0"><i class="fas fa-shopping-cart text-primary mr-1"></i>Add To Cart</button>
+                        </form>
                     </div>
-                    
+
                 <?php endforeach; ?>
             </div>
         </div>
