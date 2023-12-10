@@ -40,7 +40,7 @@ class RegisterController extends Controller
             $userModel->insert($data);
 
             // Chuyển hướng đến trang đăng nhập sau khi đăng ký thành công
-            header('Location: /login');
+            echo "<script>alert('Đăng ký thành công!'); window.location.href='/login';</script>";
             exit();
         }
 
