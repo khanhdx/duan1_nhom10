@@ -64,8 +64,8 @@
                                         <label for="price">Price</label>
                                         <input type="number" name="price" id="price" class="form-control" value="<?= $product['price'] ?>">
 
-                                        <label for="price_sale">Price sale</label>
-                                        <input type="number" name="price_sale" id="price_sale" class="form-control" value="<?= $product['price_sale'] ?>">
+                                        <label for="tonggia">Price sale</label>
+                                        <input type="number" name="tonggia" id="tonggia" class="form-control" value="<?= $product['tonggia'] ?>">
 
                                         <label for="is_active">Active</label>
                                         <select name="is_active" id="is_active" class="form-control">

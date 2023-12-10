@@ -35,7 +35,7 @@ class ProductController extends Controller {
                 'category_id' => $_POST['category_id'],
                 'name' => $_POST['name'],
                 'price' => $_POST['price'],
-                'price_sale' => $_POST['price_sale'] ?: 0,
+                'tonggia' => $_POST['tonggia'] ?: 0,
                 'description' => $_POST['description'],
                 'is_active' => $_POST['is_active'],
             ];
@@ -77,7 +77,7 @@ class ProductController extends Controller {
                 'category_id' => $_POST['category_id'],
                 'name' => $_POST['name'],
                 'price' => $_POST['price'],
-                'price_sale' => $_POST['price_sale'] ?: 0,
+                'tonggia' => $_POST['tonggia'] ?: 0,
                 'description' => $_POST['description'],
                 'is_active' => $_POST['is_active'],
             ];

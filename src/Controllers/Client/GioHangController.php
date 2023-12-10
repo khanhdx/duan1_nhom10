@@ -21,7 +21,7 @@ class GioHangController extends Controller
         if (!empty($_POST)) {
 
             $_SESSION['client/GioHang'][$_POST['id']] = [
-                'price_sale' => $_POST['price_sale'],
+                'tonggia' => $_POST['tonggia'],
                 'soluongmua' => $_POST['soluongmua'],
             ];
         }
@@ -68,30 +68,40 @@ class GioHangController extends Controller
     {
         if (!empty($_POST)) {
             // Tạo mới Order
+            $soluongmua=0;
             $sum = 0;
             foreach ($_SESSION['client/GioHang'] as $item) {
-                $sum += $item['price_sale'] * $item['soluongmua'];
+                $soluongmua=$item['soluongmua'];
+                $sum += $item['tonggia'] * $item['soluongmua'];
             }
-
+            
+            
             $data = [
-                'name' => $_POST['name'],
-                'email' => $_POST['email'],
-                'phone' => $_POST['phone'],
-                'noinhan' => $_POST['address'],
-                'tonggia' => $sum,
-                'tinhtrang' => STATUS_PENDING,
+                'id_kh'=>2,
+                'id_sp'=> $_POST['id_sp'],
+                'tinhtrang'=>1,
                 'ngay_lap' => date('Y-m-d', time()),
+                'tonggia' => $sum,
+                'noinhan' => $_POST['noinhan'],
+                'nvgh'=>2,
+                'ghichu'=> $_POST['ghichu'],
+                'name' => $_POST['name'],
+                'soluongmua'=> $soluongmua,
+                'phone' => $_POST['phone'],
+                
+                
             ];
 
             $orderID = (new hoadon)->insert($data);
 
             // Tạo Order detail
+        
             foreach ($_SESSION['client/GioHang'] as $productID => $item) {
                 $data = [
                     'id_hd' => $orderID,
                     'id_sp' => $productID,
                     'soluongmua' => $item['soluongmua'],
-                    'price_sale' => $item['price_sale'],
+                    'tonggia' => $item['tonggia'],
                 ];
 
                 (new chitiethoadon)->insert($data);

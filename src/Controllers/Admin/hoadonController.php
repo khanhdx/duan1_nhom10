@@ -68,6 +68,7 @@ class hoadonController extends Controller
                 'noinhan' => $_POST['noinhan'],
                 'nvgh' => $_POST['nvgh'],
                 'ghichu' => $_POST['ghichu'],
+                'soluongmua' => $_POST['soluongmua'],
             ];
 
             (new hoadon())->insert($data);
@@ -81,12 +82,12 @@ class hoadonController extends Controller
                     }
                 }
             }
-                $nhan=$_POST['tonggia']*$_POST['soluong'];
+                $nhan=$_POST['tonggia']*$_POST['soluongmua'];
                 $data = [
                     'id_hd' => $order,
                     'id_sp' => $_POST['id_sp'],
-                    'soluongmua' => $_POST['soluong'],
-                    'price_sale'=>$nhan,
+                    'soluongmua' => $_POST['soluongmua'],
+                    'tonggia'=>$nhan,
                 ];
                 (new chitiethoadon())->insert($data);
 
@@ -116,6 +117,7 @@ class hoadonController extends Controller
                 'noinhan' => $_POST['noinhan'],
                 'nvgh' => $_POST['nvgh'],
                 'ghichu' => $_POST['ghichu'],
+                'soluongmua' => $_POST['soluongmua'],
             ];
 
             $conditions = [
@@ -123,6 +125,17 @@ class hoadonController extends Controller
             ];
 
             (new hoadon())->update($data, $conditions);
+            
+            $data =[
+                'id_hd'=>$_GET['id'],
+                'id_sp'=> $_POST['id_sp'],
+                'soluongmua'=> $_POST['soluongmua'],
+                'tonggia'=> $_POST['tonggia'],
+            ];
+            $conditions =[
+                ['id_hd','=',$_GET['id']],
+            ];
+            (new chitiethoadon())->update($data, $conditions);
         }
 
 

@@ -26,6 +26,7 @@ class chitiethoadonController extends Controller {
             $arraysanphamsIdName[$sanpham['id']] = $sanpham['name'];
         }
 
+
         $this->renderAdmin("chitiethoadon/index",
         [
             "chitiethoadons" => $chitiethoadons,
