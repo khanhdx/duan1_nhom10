@@ -13,6 +13,8 @@ use Ductong\BaseMvc\Controllers\Client\HomeController;
 use Ductong\BaseMvc\Controllers\Client\SanPhamController;
 use Ductong\BaseMvc\Controllers\Client\ChiTietspController;
 use Ductong\BaseMvc\Controllers\Client\GioHangController;
+use Ductong\Controllers\CommentController;
+use Ductong\BaseMvc\Controllers\Auth\RegisterController;
 use Ductong\BaseMvc\Router;
 
 $router = new Router();
@@ -34,6 +36,14 @@ $router->addRoute('/admin/dashboard', DashboardController::class, 'index');
 $router->addRoute('/login', LoginController::class, 'showForm');
 $router->addRoute('/handleLogin', LoginController::class, 'handleLogin');
 $router->addRoute('/logout', LogoutController::class, 'logout');
+$router->addRoute('/auth/login', LoginController::class, 'showForm');
+$router->addRoute('/auth/handleLogin', LoginController::class, 'handleLogin');
+// Thêm tuyến đường cho phương thức logout
+$router->addRoute('/auth/logout', LogoutController::class, 'logout');
+$router->addRoute('/register', RegisterController::class, 'index');
+$router->addRoute('/handleRegister', RegisterController::class, 'handleRegister');
+$router->addRoute('/register', RegisterController::class, 'showForm');
+
 
 
 $router->addRoute('/admin/users', UserController::class, 'index');
@@ -65,3 +75,6 @@ $router->addRoute('/admin/nvgh', nvghController::class, 'index');
 $router->addRoute('/admin/nvgh/create', nvghController::class, 'create');
 $router->addRoute('/admin/nvgh/update', nvghController::class, 'update');
 $router->addRoute('/admin/nvgh/delete', nvghController::class, 'delete');
+
+$router->addRoute('/admin/comments', CommentController::class, 'showComments');
+$router->addRoute('/admin/comments/delete/{id}', CommentController::class, 'deleteComment');

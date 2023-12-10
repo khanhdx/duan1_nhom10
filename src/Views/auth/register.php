@@ -1,15 +1,14 @@
+<!-- Views/auth/register.php -->
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
-
+    <title>Register</title>
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-
     <style>
         /* BASIC */
         html {
@@ -123,8 +122,7 @@
             transform: scale(0.95);
         }
 
-        input[type=text],
-        input[type=password] {
+        input[type=text], input[type=password] {
             background-color: #f6f6f6;
             border: none;
             color: #0d0d0d;
@@ -145,14 +143,12 @@
             border-radius: 5px 5px 5px 5px;
         }
 
-        input[type=text]:focus,
-        input[type=password]:focus {
+        input[type=text]:focus, input[type=password]:focus {
             background-color: #fff;
             border-bottom: 2px solid #5fbae9;
         }
 
-        input[type=text]:placeholder,
-        input[type=password]:placeholder {
+        input[type=text]:placeholder, input[type=password]:placeholder {
             color: #cccccc;
         }
 
@@ -291,9 +287,11 @@
         #icon {
             width: 30%;
         }
+        .error {
+            color: red;
+        }
     </style>
 </head>
-
 <body>
 
     <div class="wrapper fadeInDown">
@@ -305,17 +303,20 @@
                 <img src="https://cdn.freebiesupply.com/logos/large/2x/pinterest-circle-logo-png-transparent.png" id="icon" alt="User Icon" />
             </div>
 
-            <!-- Login Form -->
-            <form action="/handleLogin" method="POST">
-                <input type="text" id="email" class="fadeIn second" name="email" placeholder="Email">
-                <input type="password" id="password" class="fadeIn third" name="password" placeholder="Password">
-                <input type="submit" class="fadeIn fourth" value="Log In">
-            </form>
+            <!-- Register Form -->
+            <?php if (isset($error)) : ?>
+                <p class="error"><?= $error ?></p>
+            <?php endif; ?>
+            <form action="/handleRegister" method="POST">
+                <input type="text" id="username" class="fadeIn second" name="username" placeholder="Username" required>
+                <input type="text" id="email" class="fadeIn second" name="email" placeholder="Email" required>
+                <input type="text" id="address" class="fadeIn second" name="address" placeholder="Address" required>
+                <input type="password" id="password" class="fadeIn third" name="password" placeholder="Password" required minlength="6">
 
-            <!-- Registration Link -->
-            <div id="formFooter">
-                <a class="underlineHover" href="/register">Don't have an account? Register here.</a>
-            </div>
+                <!-- Thêm các trường cần thiết cho form đăng ký của bạn -->
+
+                <input type="submit" class="fadeIn fourth" value="Register">
+            </form>
 
             <!-- Remind Password -->
             <div id="formFooter">
@@ -324,6 +325,7 @@
 
         </div>
     </div>
+
 </body>
 
 </html>
