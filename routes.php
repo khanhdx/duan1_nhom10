@@ -44,9 +44,6 @@ $router->addRoute('/register', RegisterController::class, 'index');
 $router->addRoute('/handleRegister', RegisterController::class, 'handleRegister');
 $router->addRoute('/register', RegisterController::class, 'showForm');
 
-$router->addRoute('/admin/comments', CommentController::class, 'index');
-$router->addRoute('/admin/comments/destroy/{id}', CommentController::class, 'commentDestroy');
-
 
 $router->addRoute('/admin/users', UserController::class, 'index');
 $router->addRoute('/admin/users/create', UserController::class, 'create');
@@ -77,3 +74,7 @@ $router->addRoute('/admin/nvgh', nvghController::class, 'index');
 $router->addRoute('/admin/nvgh/create', nvghController::class, 'create');
 $router->addRoute('/admin/nvgh/update', nvghController::class, 'update');
 $router->addRoute('/admin/nvgh/delete', nvghController::class, 'delete');
+
+$router->addRoute('/admin/comments', CommentController::class, 'index');
+// Router.php
+$router->addRoute('/admin/comments/reply', CommentController::class, 'reply');

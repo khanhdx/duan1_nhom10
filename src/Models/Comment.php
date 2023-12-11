@@ -1,44 +1,34 @@
 <?php
-// src/Models/Comment.php
 
 namespace Ductong\BaseMvc\Models;
 
 use Ductong\BaseMvc\Model;
 
-class Comment extends Model
+class Comment extends Model 
 {
     protected $table = 'comments';
-    protected $columns = [
-        'id',
-        'comment_text',
-        'user_id',
-        'product_id',
-        'date_comment',
-    ];
-    public function getCommentById($id)
-    {
-        return $this->all($id);
-    }
-    // Hàm để lấy tất cả các comment từ cơ sở dữ liệu
+
+    protected $columns = ['id', 'comment_text', 'user_id', 'product_id', 'date_comment'];
+
     public function getAllComments()
     {
+        // Lấy tất cả các comment, sắp xếp theo ngày comment giảm dần
         return $this->all();
     }
-    // Hàm để thêm một comment mới
-    public function addComment($data)
-    {
-        return $this->insert($data);
-    }
 
-    // Hàm để cập nhật thông tin một comment
-    public function updateComment($id, $data)
+    public function findCommentById($commentId)
     {
-        return $this->update($data, [['id', '=', $id]]);
+        return $this->findOne($commentId);
     }
-
-    // Hàm để xóa một comment
-    public function deleteComment($id)
+    public function addComment($commentText, $userId, $productId, $dateComment)
     {
-        return $this->delete([['id', '=', $id]]);
+        $data = [
+            'comment_text' => $commentText,
+            'user_id' => $userId,
+            'product_id' => $productId,
+            'date_comment' => $dateComment,
+        ];
+
+        $this->insert($data);
     }
 }
