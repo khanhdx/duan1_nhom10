@@ -19,4 +19,9 @@ class Controller {
 
         include "Views/admin/master.php";
     }
+
+    protected function redirect($url) {
+        header("Location: $url");
+        exit();
+    }
 }

@@ -7,40 +7,44 @@ use Ductong\BaseMvc\Models\Comment;
 
 class CommentController extends Controller
 {
-    // ...
+    private $commentModel;
+
+    public function __construct()
+    {
+        $this->commentModel = new Comment();
+    }
+
     public function index()
     {
-        $commentModel = new Comment();
-        $comments = $commentModel->getAllComments();
+        // Lấy danh sách comment
+        $comments = $this->commentModel->getAllComments();
 
-        $this->render('admin/comments/index', ['comments' => $comments]);
+        // Hiển thị danh sách comment
+        return $this->renderAdmin('comments/index', ['comments' => $comments]);
     }
-    // Xử lý xóa comment
-    public function destroy($id)
+    // Thêm vào CommentController.php
+    public function reply()
     {
-        try {
-            // Kiểm tra quyền truy cập và xác nhận tồn tại comment
-            $commentModel = new Comment();
-            $comment = $commentModel->getCommentById($id);
-    
-            if (!$comment) {
-                $_SESSION['error_message'] = 'Comment not found';
-                header('Location: /admin/comments');
-                exit();
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            // Kiểm tra xem các giá trị cần thiết có tồn tại không
+            if (isset($_POST['reply_text'], $_POST['user_id'], $_POST['product_id'])) {
+                $replyText = $_POST['reply_text'];
+                $userId = $_POST['user_id'];
+                $productId = $_POST['product_id'];
+                $dateComment = date('Y-m-d'); // Lấy ngày hiện tại
+
+                // Thực hiện thêm mới comment trả lời
+                $this->commentModel->addComment($replyText, $userId, $productId, $dateComment);
+
+                // Chuyển hướng về trang sản phẩm sau khi thêm reply
+                return $this->redirect('/product?id=' . $productId);
+            } else {
+                // Báo lỗi hoặc thực hiện các hành động khác nếu các giá trị không tồn tại
+                return $this->renderAdmin('error', ['message' => 'Missing required parameters for reply']);
             }
-    
-            // Xóa comment từ cơ sở dữ liệu
-            $commentModel->deleteComment($id);
-    
-            // Chuyển hướng và hiển thị thông báo thành công
-            $_SESSION['success_message'] = 'Comment deleted successfully';
-            header('Location: /admin/comments');
-            exit();
-        } catch (\Exception $e) {
-            // Xử lý lỗi và hiển thị thông báo lỗi
-            $_SESSION['error_message'] = 'An error occurred while deleting comment';
-            header('Location: /admin/comments');
-            exit();
+        } else {
+            // Báo lỗi hoặc thực hiện các hành động khác nếu không phải là phương thức POST
+            return $this->renderAdmin('error', ['message' => 'Invalid request method']);
         }
     }
     

@@ -1,6 +1,8 @@
+<!-- comments/index.php -->
+
 <div class="pcoded-content">
     <div class="page-header card">
-        <div class="row align-items-end">
+    <div class="row align-items-end">
             <div class="col-lg-8">
                 <div class="page-header-title">
                     <i class="feather icon-home bg-c-blue"></i>
@@ -15,11 +17,11 @@
                         <li class="breadcrumb-item">
                             <a href="/admin/dashboard"><i class="feather icon-home"></i></a>
                         </li>
-                        <li class="breadcrumb-item"><a href="#!">Comment Management</a></li>
+                        <li class="breadcrumb-item"><a href="#!">Comment</a></li>
                     </ul>
                 </div>
             </div>
-        </div>
+        </div>    
     </div>
 
     <div class="pcoded-inner-content">
@@ -30,7 +32,7 @@
                         <div class="col-sm-12">
                             <div class="card">
                                 <div class="card-header">
-                                    <h5>Comment List</h5>
+                                    <h5>Danh sách Comment</h5>
                                 </div>
                                 <div class="card-block">
                                     <div class="dt-responsive table-responsive">
@@ -53,9 +55,10 @@
                                                         <td><?= $comment['user_id'] ?></td>
                                                         <td><?= $comment['product_id'] ?></td>
                                                         <td><?= $comment['date_comment'] ?></td>
-                                                        <td>
-                                                            <form action="/admin/comments/destroy/<?= $comment['id'] ?>" method="post">
-                                                                <button type="submit" onclick="return confirm('Are you sure you want to delete this comment?');" class="btn btn-danger btn-sm">Delete</button>
+                                                        <td>                                                            <!-- Thêm nút hoặc biểu mẫu cho việc trả lời comment -->
+                                                            <form action="/admin/comments/reply" method="post">
+                                                                <input type="hidden" name="comment_id" value="<?= $comment['id'] ?>">
+                                                                <button type="submit" class="btn btn-info btn-sm">Reply</button>
                                                             </form>
                                                         </td>
                                                     </tr>
