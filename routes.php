@@ -45,9 +45,8 @@ $router->addRoute('/handleRegister', RegisterController::class, 'handleRegister'
 $router->addRoute('/register', RegisterController::class, 'showForm');
 
 $router->addRoute('/admin/comments', CommentController::class, 'index');
-$router->addRoute('/admin/comments/show/{id}', CommentController::class, 'show');
-$router->addRoute('/admin/comments/update/{id}', CommentController::class, 'update');
-$router->addRoute('/admin/comments/destroy/{id}', CommentController::class, 'destroy');
+$router->addRoute('/admin/comments/destroy/{id}', CommentController::class, 'commentDestroy');
+
 
 $router->addRoute('/admin/users', UserController::class, 'index');
 $router->addRoute('/admin/users/create', UserController::class, 'create');
