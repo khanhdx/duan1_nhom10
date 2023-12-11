@@ -13,8 +13,8 @@ use Ductong\BaseMvc\Controllers\Client\HomeController;
 use Ductong\BaseMvc\Controllers\Client\SanPhamController;
 use Ductong\BaseMvc\Controllers\Client\ChiTietspController;
 use Ductong\BaseMvc\Controllers\Client\GioHangController;
-use Ductong\Controllers\CommentController;
 use Ductong\BaseMvc\Controllers\Auth\RegisterController;
+use Ductong\BaseMvc\Controllers\Admin\CommentController;
 use Ductong\BaseMvc\Router;
 
 $router = new Router();
@@ -44,7 +44,10 @@ $router->addRoute('/register', RegisterController::class, 'index');
 $router->addRoute('/handleRegister', RegisterController::class, 'handleRegister');
 $router->addRoute('/register', RegisterController::class, 'showForm');
 
-
+$router->addRoute('/admin/comments', CommentController::class, 'index');
+$router->addRoute('/admin/comments/show/{id}', CommentController::class, 'show');
+$router->addRoute('/admin/comments/update/{id}', CommentController::class, 'update');
+$router->addRoute('/admin/comments/destroy/{id}', CommentController::class, 'destroy');
 
 $router->addRoute('/admin/users', UserController::class, 'index');
 $router->addRoute('/admin/users/create', UserController::class, 'create');
@@ -75,6 +78,3 @@ $router->addRoute('/admin/nvgh', nvghController::class, 'index');
 $router->addRoute('/admin/nvgh/create', nvghController::class, 'create');
 $router->addRoute('/admin/nvgh/update', nvghController::class, 'update');
 $router->addRoute('/admin/nvgh/delete', nvghController::class, 'delete');
-
-$router->addRoute('/admin/comments', CommentController::class, 'showComments');
-$router->addRoute('/admin/comments/delete/{id}', CommentController::class, 'deleteComment');
