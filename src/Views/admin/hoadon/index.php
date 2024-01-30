@@ -36,7 +36,7 @@
 
                                     <a href="/admin/hoadon/create" class="btn btn-info btn-sm">Tạo mới</a>
                                     <br>
-                                    <a href="/admin/chitiethoadon" class="btn btn-primary mt-3">Chi tiết các HD</a>
+                                    
                                 </div>
                                 <div class="card-block">
                                     <div class="dt-responsive table-responsive">
@@ -46,7 +46,6 @@
                                                     <th>STT</th>
                                                     <th>name</th>
                                                     <th>Khách hàng</th>
-                                                    <th>Sản phẩm</th>
                                                     <th>Tình trạng</th>
                                                     <th>Ngày lập</th>
                                                     <th>Tổng giá</th>
@@ -63,7 +62,6 @@
                                                         <td><?= $hoadon['id'] ?></td>
                                                         <td><?= $hoadon['name'] ?></td>
                                                         <td><?= $arrayusersIdName[$hoadon['id_kh']] ?></td>
-                                                        <td><?= $arrayproductsIdName[$hoadon['id_sp']] ?></td>
                                                         <td><?= $arraytinhtrangIdName[$hoadon['tinhtrang']] ?></td>
                                                         <td><?= $hoadon['ngay_lap'] ?></td>
                                                         <td><?= $hoadon['tonggia'] ?></td>
@@ -76,6 +74,7 @@
                                                             <form action="/admin/hoadon/delete?id=<?= $hoadon['id'] ?>" method="post">
                                                                 <button type="submit" onclick="return confirm('Bạn có chắc chắn xóa?');" class="btn btn-danger btn-sm">Xóa</button>
                                                             </form>
+                                                            <a href="/admin/chitiethoadon?id=<?= $hoadon['id'] ?>" class="btn btn-primary btn-sm">Chi tiết HD</a>
                                                         </td>
                                                     </tr>
                                                 <?php endforeach; ?>

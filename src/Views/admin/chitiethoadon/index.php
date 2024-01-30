@@ -54,10 +54,10 @@
                                                 <?php foreach ($chitiethoadons as $chitiethoadon) : ?>
                                                     <tr>
                                                         <td><?= $chitiethoadon['id'] ?></td>
-                                                        <td><?= $arrayhoadonsIdName[$chitiethoadon['id_hd']] ?></td>
+                                                        <td><?= $chitiethoadon['id_hd'] ?></td>
                                                         <td><?= $arraysanphamsIdName[$chitiethoadon['id_sp']] ?></td>
                                                         <td><?= $chitiethoadon['soluongmua'] ?></td>
-                                                        <td><?= $chitiethoadon['tonggia'] ?></td>
+                                                        <td><?= $chitiethoadon['dongia'] ?></td>
 
 
                                                     </tr>

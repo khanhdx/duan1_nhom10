@@ -9,7 +9,6 @@ class hoadon extends Model {
     protected $columns = [
         
         'id_kh',
-        'id_sp',
         'tinhtrang',
         'ngay_lap',
         'tonggia',

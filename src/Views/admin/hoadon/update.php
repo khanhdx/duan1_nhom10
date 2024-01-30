@@ -50,16 +50,7 @@
                                             <?php endforeach; ?>
                                         </select>
 
-                                        <label for="id_sp">Sản phẩm</label>
-                                        <select name="id_sp" id="id_sp" class="form-control">
-                                            <?php foreach ($products as $product) : ?>
-                                                <option <?= $hoadons['name'] == $product['id'] ? 'selected' : '' ?> value="<?= $product['id'] ?>">
-
-                                                    <?= $product['name'] ?>
-
-                                                </option>
-                                            <?php endforeach; ?>
-                                        </select>
+                                        
 
                                         <label for="soluongmua">Số lượng</label>
                                         <input type="number" name="soluongmua" id="soluongmua" class="form-control" value="<?= $hoadons['soluongmua'] ?>">

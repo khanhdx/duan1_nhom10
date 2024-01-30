@@ -54,6 +54,14 @@ class Model
         return $stmt->fetchAll();
     }
 
+    public function select_jion($table, $where,$on) {
+        $sql = "SELECT * FROM $this->table JOIN $table ON $on WHERE $where";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute();
+        return $stmt->fetchAll();
+
+    }
+
     public function paginate($page = 1, $perPage = 10)
     {
         $sql = "SELECT * FROM {$this->table} LIMIT {$perPage} OFFSET (({$page} - 1) * {$perPage})";

@@ -50,15 +50,7 @@
 
                                         </select>
 
-                                        <label for="id_sp">Sản Phẩm</label>
-                                        <select name="id_sp" id="id_sp" class="form-control">
-                                            <option value="" selected>...</option>
-                                            <?php foreach ($products as $produc) : ?>
-                                                <option value="<?= $produc['id'] ?>"><?= $produc['name'] ?></option>
-
-                                            <?php endforeach; ?>
-
-                                        </select>
+                                        
 
                                         <label for="soluongmua">Số Lượng</label>
                                         <input type="number" name="soluongmua" id="soluongmua" class="form-control">

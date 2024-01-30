@@ -77,7 +77,7 @@ class GioHangController extends Controller
             
             
             $data = [
-                'id_kh'=>2,
+                'id_kh'=>1,
                 'id_sp'=> $_POST['id_sp'],
                 'tinhtrang'=>1,
                 'ngay_lap' => date('Y-m-d', time()),
